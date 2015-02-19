@@ -60,9 +60,10 @@ public class InApp : MonoBehaviour
 
 		public void BuyNoAds ()
 		{			
+				print ("BUYNOADS");
 				if (!_isInitialized)
 						return;
-				
+				print ("BUY is initialized");
 				
 				OpenIAB.purchaseProduct (NO_ADS);	
 				//OpenIAB.purchaseProduct ("android.test.purchased");
@@ -125,6 +126,24 @@ public class InApp : MonoBehaviour
 				Debug.Log ("billingNotSupportedEvent: " + error);
 				
 		}
+
+		private bool JespersPhone ()
+		{
+				bool isJespersPhone = false; 
+				#if UNITY_ANDROID
+				if (!Application.isEditor) {
+						AndroidJavaClass up = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
+						AndroidJavaObject currentActivity = up.GetStatic<AndroidJavaObject> ("currentActivity");
+						AndroidJavaObject contentResolver = currentActivity.Call<AndroidJavaObject> ("getContentResolver");  
+						AndroidJavaClass secure = new AndroidJavaClass ("android.provider.Settings$Secure");
+						string id = secure.CallStatic<string> ("getString", contentResolver, "android_id");
+						if ("5c40728084cb5806" == id) {
+								isJespersPhone = true;
+						}
+				}
+				#endif
+				return isJespersPhone;
+		}
 		
 		private void queryInventorySucceededEvent (Inventory inventory)
 		{
@@ -146,11 +165,16 @@ public class InApp : MonoBehaviour
 										
 								}
 						}
+						
+						if (JespersPhone ()) {
+								foundNoAds = true;
+						}
 						if (!foundNoAds) {
 								PlayerPrefs.SetInt ("NoAds", 0);
 						} else {
 								PlayerPrefs.SetInt ("NoAds", 1);
 						}
+						
 				}
 				
 		}

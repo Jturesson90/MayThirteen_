@@ -106,7 +106,10 @@ function Update () {
 		transform.rotation.y=0;
 		transform.rotation.z=0;
 	}
-	Shake();	
+		
+}
+function FixedUpdate(){
+	Shake();
 }
 
 function StopFollow(canBeDead: boolean){

@@ -75,19 +75,18 @@ function OnGUI ()
 {
 	GUI.matrix = Matrix4x4.TRS (Vector3(0, 0, 0), Quaternion.identity, Vector3 (Screen.width / nativeHorizontalResolution, Screen.height / nativeVerticalResolution, 1)); 
  	if(!showGUI)return;
- 	if(QuitScript.isShowingQuit)return;
  	
  
  	//Stars
- 	if(isPaused && Application.loadedLevelName == "LevelSelectionLobby")
+ /*	if(isPaused && Application.loadedLevelName == "LevelSelectionLobby")
  	{
- 		GUI.DrawTexture(Rect(10,nativeVerticalResolution-90,80,80),starTexture);
- 		myFont.fontSize=85;
+ 	//	GUI.DrawTexture(Rect(10,nativeVerticalResolution-90,80,80),starTexture);
+ 	//	myFont.fontSize=85;
  		//GUI.Label(new Rect(90,nativeVerticalResolution,0,0),PlayerPrefs.GetInt("Stars",0)+"/20",myFont);
- 		ShadowAndOutline.DrawOutline( Rect (90,nativeVerticalResolution, 0, 0), PlayerPrefs.GetInt("Stars",0)+"/20", myFont, outerColor,  innerColor,5.0f );
+ 	//	ShadowAndOutline.DrawOutline( Rect (90,nativeVerticalResolution, 0, 0), PlayerPrefs.GetInt("Stars",0)+"/20", myFont, outerColor,  innerColor,5.0f );
 				
  	}
- 	
+ */	
  	GUI.color = guiColor;
  	if(haveWon){
  		//RestartButton
@@ -138,12 +137,12 @@ function OnGUI ()
  	else
  	{
 	 	isPaused = Time.timeScale == 0.0f ? true : false;
-	    GUI.skin = isPaused ? playSkin : guiSkin;
+	/*   GUI.skin = isPaused ? playSkin : guiSkin;
 		if(GUI.Button(Rect(nativeHorizontalResolution-smallButtonsSize-10,5,smallButtonsSize,smallButtonsSize),""))
 		{
 			//print("CLICKING PAUSE");
 			Time.timeScale = isPaused ? 1.0f : 0.0f;
-		}
+		}*/
 		GUI.skin = backToMenuSkin;
 	 	if(isPaused)
 	    {
@@ -164,13 +163,13 @@ function OnGUI ()
 					//print("CLICKING Restart!");
 					Application.LoadLevel (Application.loadedLevelName);
 				}
-	      	}else if(Application.loadedLevelName == "LevelSelectionLobby" || Application.loadedLevelName == "LevelX"){
+	      	}/*else if(Application.loadedLevelName == "LevelSelectionLobby" || Application.loadedLevelName == "LevelX"){
 	      		GUI.skin = menuSkin;
 	      		if(GUI.Button(Rect(nativeHorizontalResolution-smallButtonsSize*2-10*2,5,smallButtonsSize,smallButtonsSize),"")){
 					//print("CLICKING BackToMenu");
 					Application.LoadLevel("Menu");
 				}
-	      	}
+	      	}*/
 	      	
 	      	if(PlayerPrefs.GetInt("NoAds",0)!=1 && Application.loadedLevelName != "LevelX"){
 		      	GUI.skin = noAds;
@@ -188,7 +187,7 @@ function OnGUI ()
 		      	}
 	      	}
 	      	
-	      	GUI.skin = !AudioListener.pause ? soundSkin : soundOffSkin;
+	      /*	GUI.skin = !AudioListener.pause ? soundSkin : soundOffSkin;
 	      	if(GUI.Button(Rect(10,5,120,120),"")){
 	      			
 					AudioListener.pause = AudioListener.pause ? false: true;
@@ -197,14 +196,14 @@ function OnGUI ()
 					Debug.Log("SoundON "+PlayerPrefs.GetInt("SoundOn",1));
 					
 				}
-	     
+	     */
 	   }
 	   
-	   
+	   /* ARROWS
 	   if(!isPaused && controller.running){
 			GUI.DrawTexture(Rect(10,nativeVerticalResolution/2+100,200,-200), aTexture);
 			GUI.DrawTexture(Rect(nativeHorizontalResolution-10,nativeVerticalResolution/2+100,-200,-200), aTexture);
-	   } 
+	   } */
  }
  
 }
