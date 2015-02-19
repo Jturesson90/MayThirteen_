@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: 6c8afa5873fb86d43a5701e410330d89
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: levelOpen
+    21300002: levelOpen_0
+    21300004: levelOpen_1
+    21300006: levelOpen_2
+    21300008: levelOpen_3
+    21300010: levelOpen_4
+    21300012: levelOpen_5
+    21300014: levelOpen_6
+    21300016: levelOpen_7
+    21300018: levelOpen_8
+    21300020: levelOpen_9
+    21300022: levelOpen_10
+    21300024: levelOpen_11
+    21300026: levelOpen_12
+    21300028: levelOpen_13
+    21300030: levelOpen_14
+    21300032: levelOpen_15
+    21300034: levelOpen_16
+    21300036: levelOpen_17
+    21300038: levelOpen_18
+    21300040: levelOpen_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: levelOpen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 369
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_1
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 369
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_2
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 369
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_3
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 369
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_4
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 369
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 246
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_6
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 246
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_7
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 246
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_8
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 246
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_9
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 246
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 123
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_11
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 123
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_12
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 123
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_13
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 123
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_14
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 123
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_16
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_17
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 0
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_18
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: levelOpen_19
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 0
+        width: 186
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
