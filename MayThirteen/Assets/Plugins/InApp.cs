@@ -39,7 +39,7 @@ public class InApp : MonoBehaviour
 
 		void init ()
 		{
-				Debug.Log ("INIT");
+//				Debug.Log ("INIT");
 
 				var public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgED1o3jgkaOy8DCSAd4UucidG5/0i4FwrTc/fKr74VAPwtn1tY6OgNG1X2jrjOwkvQthXD7oMCK7rMk6il3vBC0Q2j07rSRJHY3e2rRc1ejxVq6OM0YZXd9OxyRHl1iz0FuhWUfXQavFiPn6MWqxtk/t/gXORCjYguoCOHFvGFYrAvQzH99eJ+OyeRv6SmS7F799vTIaqjIfClT/ZgGGxdGdgkLCVLKDkt8hAdLvf690jsUmTsDaEWrrSz/cvD3uLBxiSewyS+Eb4DqVuYMHBmVn+tNtR+yLrrm7sBYx34xlxSIF3XIk8dEKV7grhDx+9iD4SvokwJEftC1bYlJWzwIDAQAB";
 				var options = new Options ();
@@ -116,14 +116,14 @@ public class InApp : MonoBehaviour
 		{
 				_isInitialized = true;
 				
-				Debug.Log ("billingSupportedEvent");
+				//	Debug.Log ("billingSupportedEvent");
 				OpenIAB.queryInventory ();
 
 		}
 
 		private void billingNotSupportedEvent (string error)
 		{
-				Debug.Log ("billingNotSupportedEvent: " + error);
+				//	Debug.Log ("billingNotSupportedEvent: " + error);
 				
 		}
 

@@ -90,7 +90,8 @@ function Update () {
 		//ZoomToPlayer();
 		ZoomToTarget();
 	}else {
-		if(followPlayer){
+	if(followPlayer){
+		
 			transform.position.x = objectTarget.transform.position.x;
 			transform.position.y = objectTarget.transform.position.y;
 		}
@@ -98,18 +99,12 @@ function Update () {
 	if(won){	
 		transform.rotation =  Quaternion.Lerp(transform.rotation,cameraWonTarget, Time.deltaTime * 2.0);
 	}
-	if(!controllerScript.useAccelerometer){
 		Physics2D.gravity = -transform.up*9.81;
-	}
-	else if(controllerScript.useAccelerometer){
-		transform.rotation.x=0;
-		transform.rotation.y=0;
-		transform.rotation.z=0;
-	}
-		
+	
+	Shake();
 }
 function FixedUpdate(){
-	Shake();
+	
 }
 
 function StopFollow(canBeDead: boolean){

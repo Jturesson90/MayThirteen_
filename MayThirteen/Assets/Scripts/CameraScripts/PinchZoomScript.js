@@ -4,7 +4,7 @@ private var perspectiveZoomSpeed : float = 0.1f;        // The rate of change of
 private var orthoZoomSpeed : float = 0.1f;        // The rate of change of the orthographic size in orthographic mode.
 public var minZoom : float = 60.0f; 
 public var smoothnes : float = 3f;
-private var isTouching : boolean = false;
+
 private var myFieldOfView;
 private var cameraZoomSpot : GameObject;
 private var controllerScript : ControllerScript;
@@ -20,9 +20,7 @@ function Update()
     if(!controllerScript.running) return;
     if (Input.touchCount == 2)
     {	
-    	
-    	
-    	isTouching = true;
+
         // Store both touches.
         var touchZero = Input.GetTouch(0);
         var touchOne = Input.GetTouch(1);
@@ -62,12 +60,7 @@ function Update()
            
         }
     }
-    else {
-    	if(isTouching){
-    		isTouching = false;	
-    	}
-    	//camera.fieldOfView = Mathf.Lerp(myFieldOfView, camera.fieldOfView, Time.deltaTime*smoothnes);
-    }
+
      if (Input.GetAxis("Mouse ScrollWheel") > 0){
      	 if (camera.isOrthoGraphic)
         {

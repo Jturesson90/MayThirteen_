@@ -156,7 +156,7 @@ function PlaySong(id : int){
 		//FadeAudio(fadeTime, Fade.In,currentClip);
 		audioSource.Play();
 		timeSince = Time.time - timeSince;
-		print(timeSince);
+		
 		audioSource.time= timeInSamples+timeSince;
 	}
 }

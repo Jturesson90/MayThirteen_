@@ -1,6 +1,5 @@
 ﻿#pragma strict
 private var cameraScript : CameraScript;
-var dustParticles : ParticleSystem;
 var brokenStone : GameObject;
 private var hittedALevel : GameObject;
 private var canPressLevel : boolean;

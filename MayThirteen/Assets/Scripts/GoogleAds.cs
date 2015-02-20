@@ -132,7 +132,7 @@ public class GoogleAds : MonoBehaviour
 
 		public void LoadPageAd ()
 		{
-				print ("LOADPAGE");
+//				print ("LOADPAGE");
 				if (shouldShowAds) {
 						if (!PlayerPrefs.HasKey ("ads"))
 								PlayerPrefs.SetInt ("ads", 0);

@@ -2,23 +2,22 @@
 
 private var halo : Component;
 var selectedLevel: int;
-var clickable :boolean;
+private var clickable :boolean;
 private var cam : Camera;
-var outerColor : Color32;
-var innerColor : Color32;
-private var nativeVerticalResolution = 1080.0;
-private var nativeHorizontalResolution = 1920.0;
+
 private var ballScript : BallScript;
 private var isOpen : boolean;
-var myFont : GUIStyle;
+
 private var state :LevelState;
+private var uiHelper : UIHelper;
 
 function Awake(){
 	
 	halo = GetComponent("Halo"); 
 	halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
 	ballScript = GameObject.Find("Ball").GetComponent("BallScript");
-	 
+	uiHelper = GameObject.Find("UIHelper").GetComponent("UIHelper");
+	
 }
 function Start () {
 	SetStar(false);
@@ -94,16 +93,10 @@ function OnTriggerEnter2D(other: Collider2D) {
 	if(!isOpen)return;
 	halo.GetType().GetProperty("enabled").SetValue(halo, true, null);
 	clickable = true;
+	uiHelper.ShowLevelText(selectedLevel);
 }
 function OnTriggerExit2D(other: Collider2D) {
 	halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
 	clickable = false;
-}
-function OnGUI(){
- 	if(clickable){
-		GUI.matrix = Matrix4x4.TRS (Vector3(0, 0, 0), Quaternion.identity, Vector3 (Screen.width / nativeHorizontalResolution, Screen.height / nativeVerticalResolution, 1));
-		//GUI.Label(new Rect(nativeHorizontalResolution/2,0, 0, 0), "Click to enter level "+selectedLevel+"!", myFont);
-		ShadowAndOutline.DrawOutline(new Rect(nativeHorizontalResolution/2,0, 0, 0), "Click to enter level "+selectedLevel+"!", myFont,outerColor, innerColor, 5f );
-		
-	}
+	uiHelper.HideLevelText();
 }
