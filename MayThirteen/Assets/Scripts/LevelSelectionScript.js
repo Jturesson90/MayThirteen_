@@ -15,7 +15,7 @@ function Awake(){
 	
 	halo = GetComponent("Halo"); 
 	halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
-	ballScript = GameObject.Find("Ball").GetComponent("BallScript");
+	ballScript = GameObject.FindGameObjectWithTag("Ball").GetComponent("BallScript");
 	uiHelper = GameObject.Find("UIHelper").GetComponent("UIHelper");
 	
 }

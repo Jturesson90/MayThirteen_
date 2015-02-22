@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UIHelper : MonoBehaviour
 {
 		private GameObject uiArrows;
+		private GameObject uiLevelText;
+
 		private PauseButton pauseButton;
 		private UIStars uiStars;
 		private UIButtonsLevelSelection uiButtons;
 		private UIEnterLevelText uiEnterLevelText;
+		
+		
+		private bool isArrowsActive = false;
 
 		void HideUI ()
 		{
@@ -21,9 +27,11 @@ public class UIHelper : MonoBehaviour
 				FetchGameObjects ();
 				FetchScripts ();
 				HideUI ();
+				
 		}
 		void FetchGameObjects ()
 		{
+				uiLevelText = GameObject.Find ("UIEnterLevelText");
 				uiArrows = GameObject.Find ("UIArrows");
 		}
 		void FetchScripts ()
@@ -42,7 +50,7 @@ public class UIHelper : MonoBehaviour
 		}
 
 		
-		private bool isArrowsActive = false;
+		
 		public void TogglePause ()
 		{
 
@@ -50,6 +58,7 @@ public class UIHelper : MonoBehaviour
 						Time.timeScale = 1.0f;
 						uiStars.HideStars ();
 						uiButtons.hidePausedButtons ();
+						uiLevelText.SetActive (true);
 						if (isArrowsActive) {
 								ShowArrows ();
 								isArrowsActive = false;
@@ -59,6 +68,7 @@ public class UIHelper : MonoBehaviour
 						Time.timeScale = 0.0f;
 						uiStars.ShowStars ();
 						uiButtons.showPausedButtons ();
+						uiLevelText.SetActive (false);
 						isArrowsActive = uiArrows.activeSelf;
 						if (isArrowsActive) {
 								HideArrows ();
@@ -78,14 +88,18 @@ public class UIHelper : MonoBehaviour
 				Time.timeScale = 1.0f;
 				
 		}
-		public void LoadLevel (string level)
-		{
-				Application.LoadLevel (level);
-		}
 		
 		public void ShowLevelText (int selectedLevel)
 		{
-				string text = "Click to enter level " + selectedLevel + "!";
+				string text = "";
+#if UNITY_IPHONE || UNITY_ANDROID
+				text = "Click to enter level " + selectedLevel + "!";
+#endif
+#if UNITY_STANDALONE || UNITY_EDITOR
+				text = "Press Space to enter level " + selectedLevel + "!";
+#endif
+
+				
 				
 				uiEnterLevelText.setText (text);
 		}

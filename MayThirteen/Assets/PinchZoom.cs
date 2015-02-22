@@ -14,7 +14,7 @@ public class PinchZoom : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-#if UNITY_ANDROID || UNITY_IPHONE
+				#if UNITY_ANDROID || UNITY_IPHONE
 				HandleMobileInput ();
 #endif
 #if UNITY_STANDALONE || UNITY_EDITOR

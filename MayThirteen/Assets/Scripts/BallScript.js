@@ -1,7 +1,6 @@
 ﻿#pragma strict
 private var cameraScript : CameraScript;
 var brokenStone : GameObject;
-private var hittedALevel : GameObject;
 private var canPressLevel : boolean;
 private var explosionPos : Vector3;
 var myFont : GUIStyle;
@@ -14,7 +13,7 @@ var outerColor: Color;
 var innerColor : Color;
 
 function Awake () {
-	cameraScript = GameObject.Find("Camera").GetComponent("CameraScript");
+	cameraScript = Camera.main.GetComponent("CameraScript");
 	}
 function Start(){
 
@@ -30,7 +29,7 @@ function Update () {
 }
 function OnTriggerEnter2D(hit :  Collider2D){
 	
-	if(rend.enabled == false){
+	if(renderer.enabled == false){
 		return;
 	}
 	if(hit.gameObject.tag=="OutOfBounds"){	
@@ -49,13 +48,10 @@ function OnTriggerEnter2D(hit :  Collider2D){
 function OnTriggerExit2D(hit : Collider2D){
 	if(hit.gameObject.tag == "ALevel"){
 		canPressLevel = false;
-		hittedALevel=null;
 	}
 }
 
-function OnDisable(){
-	
-}
+
 function LoadNextLevel(level : String){
 	if(Application.loadedLevelName == "LevelSelectionLobby"){
 		PlayerPrefs.SetFloat("PlayerXPos",gameObject.transform.position.x);

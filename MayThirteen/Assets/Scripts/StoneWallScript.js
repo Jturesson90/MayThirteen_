@@ -1,24 +1,21 @@
 ﻿#pragma strict
 private var cameraScript : CameraScript;
-var soundClip : AudioClip;
 var wallIndex : int;
 enum Fade {In, Out}
 private var hasPlayed : boolean = false;
 
-private var fade : FadingText;
+
 
 function Awake(){
-	fade = GetComponent("FadingText");
-	cameraScript = GameObject.Find("Camera").GetComponent("CameraScript");
+
+	//cameraScript = GameObject.Find("Camera").GetComponent("CameraScript");
 }
 function Start () {
 	
 	
-	if(PlayerPrefs.GetInt("LevelsDone",0)> wallIndex){
-		Destroy(gameObject);
-	}
-	StoneWallFunction(PlayerPrefs.GetInt("LevelsDone"));
-	//print("LevelsDone = "+PlayerPrefs.GetInt("LevelsDone"));
+	
+//	print("LevelsDone: "+ PlayerPrefs.GetInt("LevelsDone",0));
+	//StoneWallFunction(PlayerPrefs.GetInt("LevelsDone"));
 }
 
 function Update () {
@@ -65,12 +62,7 @@ function AtEndOfAnimation(){
 	
 	FadeAudio(2.0, Fade.Out);
 }
-function OnCollisionEnter2D(coll: Collision2D) {
-	if (coll.gameObject.tag == "Ball" && wallIndex ==16 && PlayerPrefs.GetInt("LevelsDone",0) == 15){
-		
-		fade.Text("More levels coming soon");
-	}
-}
+
 function FadeAudio (timer : float, fadeType : Fade) {
     var start = fadeType == Fade.In? 0.0 : 1.0;
     var end = fadeType == Fade.In? 1.0 : 0.0;

@@ -1,7 +1,7 @@
 ﻿#pragma strict
 private var ball : GameObject;
 private var cam : GameObject;
-private var speed:float =2;
+
 function Awake(){
 	if(Application.loadedLevelName == "LevelSelectionLobby"){
 		Destroy(gameObject);

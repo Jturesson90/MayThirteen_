@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400000}
   - 61: {fileID: 6100000}
   - 122: {fileID: 12200000}
+  - 114: {fileID: 11417070}
   m_Layer: 0
   m_Name: levelSelect_1
   m_TagString: ALevel
@@ -29,7 +29,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
   m_Layer: 0
-  m_Name: star
+  m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 1.53999996, y: 1.29999995}
   m_Center: {x: 0, y: 0}
---- !u!114 &11400000
+--- !u!114 &11417070
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -79,77 +79,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea4f0260b1d668469ff58599a2829a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b20891cde1d0e74a8a3440fa3858c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectedLevel: 1
-  clickable: 0
-  doneSprite: {fileID: 21300002, guid: 244d6398e9eb0ab4191367f9c996904a, type: 3}
-  outerColor:
-    serializedVersion: 2
-    rgba: 4281084981
-  innerColor:
-    serializedVersion: 2
-    rgba: 4294309365
-  myFont:
-    m_Name: Hej
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: .250208706, g: .212802753, b: .705882311, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 0bb66c7eefa304f92920d01e09224c5d, type: 3}
-    m_FontSize: 70
-    m_FontStyle: 0
-    m_Alignment: 1
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
 --- !u!122 &12200000
 Halo:
   m_ObjectHideFlags: 1
@@ -203,7 +136,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 89cadfbbac4e00447a8250af5d0d97a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20fc70e54ff144f409762fa53139f7fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

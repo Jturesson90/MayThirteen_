@@ -5,7 +5,7 @@ public class FollowTarget : MonoBehaviour
 {
 
 		public Transform targetToFollow;
-		void Update ()
+		void FixedUpdate ()
 		{
 				Vector3 newPosition = targetToFollow.position;
 				newPosition.z = transform.position.z;

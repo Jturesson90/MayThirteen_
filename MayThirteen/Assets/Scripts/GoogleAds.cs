@@ -53,6 +53,8 @@ public class GoogleAds : MonoBehaviour
 						if (shouldShowAds) {
 								bannerView.Show ();	
 						
+						} else if (Application.loadedLevelName == "Menu") {
+								bannerView.Hide ();
 						} else {
 								bannerView.Hide ();		
 						}
@@ -101,21 +103,19 @@ public class GoogleAds : MonoBehaviour
 				pageAdID = IOSPageID;
 #endif
 				bannerView = new BannerView (bannerID, AdSize.Banner, AdPosition.Bottom);
+
 				#if UNITY_ANDROID
 				AdRequest request = new AdRequest.Builder ().AddTestDevice ("5c40728084cb5806").Build ();
 				#elif UNITY_IPHONE
-				AdRequest request = new AdRequest.Builder ().Build ();
 				#endif
+
 				bannerView.LoadAd (request);
-				// Initialize an InterstitialAd.
 				interstitial = new InterstitialAd (pageAdID);
-				// Create an empty ad request.
 				#if UNITY_ANDROID
 				bigRequest = new AdRequest.Builder ().AddTestDevice ("5c40728084cb5806").Build ();
 				#elif UNITY_IPHONE
 				bigRequest = new AdRequest.Builder ().Build ();
 				#endif
-				// Load the interstitial with the request.
 				interstitial.LoadAd (bigRequest);
 				
 		}

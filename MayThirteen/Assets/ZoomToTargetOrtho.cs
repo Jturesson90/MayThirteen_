@@ -19,7 +19,6 @@ public class ZoomToTargetOrtho : MonoBehaviour
 		private float speed;
 		
 		private bool clicked = false;
-		private bool isZooming = false;
 		private bool doneZooming = true;
 
 		void Awake ()
@@ -110,7 +109,7 @@ public class ZoomToTargetOrtho : MonoBehaviour
 						if (distance < 0.5f) {
 								doneZooming = true;
 						}
-						print (distance);
+						
 						yield return new WaitForFixedUpdate ();
 				}
 				DoneZooming ();
@@ -128,9 +127,9 @@ public class ZoomToTargetOrtho : MonoBehaviour
 				float currentDistance = Vector3.Distance (posNow, posEnd);
 				float distancePercentage = currentDistance / fullDistance;
 
-				float orthoSizeStart = startOrthoSize;
+				
 				float orthoSizeEnd = orthoSizeTarget;
-				print (fullDistance + "," + currentDistance + "," + distancePercentage + ",    " + orthoSizeStart + "," + orthoSizeEnd);
+				
 				float fullSizeDiff = startOrthoSize - orthoSizeEnd;
 		
 				sizeToReturn = orthoSizeEnd + (fullSizeDiff * distancePercentage);

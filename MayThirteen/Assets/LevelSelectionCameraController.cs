@@ -4,12 +4,15 @@ using System.Collections;
 [RequireComponent (typeof(Camera))]
 public class LevelSelectionCameraController : MonoBehaviour
 {
+		
+		UIHelper uiHelper;
 		GameMovement gameMovement;
 		public float startZoomAfter = 2.5f;
-		// Use this for initialization
+		
 		
 		void Awake ()
 		{
+				uiHelper = GameObject.Find ("UIHelper").GetComponent<UIHelper> ();
 				gameMovement = GetComponent<GameMovement> ();
 				gameMovement.enabled = false;
 		}
@@ -17,8 +20,7 @@ public class LevelSelectionCameraController : MonoBehaviour
 		{
 				StartZoomAfter (startZoomAfter);
 		}
-	
-		// Update is called once per frame
+
 		void Update ()
 		{
 				Physics2D.gravity = -transform.up * 9.81f;
@@ -26,13 +28,20 @@ public class LevelSelectionCameraController : MonoBehaviour
 		
 		public void DoneZooming ()
 		{
-				//TODO DoneZooming
-				print ("DONE ZOOMING");
 				gameMovement.enabled = true;
 		}
 		private void StartZoomAfter (float waitTime)
 		{
 				gameMovement.enabled = false;
 				GetComponent<ZoomToTargetOrtho> ().StartZoomAfter (waitTime);
+		}
+		
+		public void HideUIArrows ()
+		{
+				uiHelper.HideArrows ();
+		}
+		public void ShowUIArrows ()
+		{
+				uiHelper.ShowArrows ();
 		}
 }

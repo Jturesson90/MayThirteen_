@@ -14,9 +14,25 @@ GameObject:
   - 114: {fileID: 11400004}
   - 122: {fileID: 12200000}
   - 60: {fileID: 6000000}
+  - 114: {fileID: 11407326}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &141644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 441644}
+  m_Layer: 0
+  m_Name: RockCameraPosition
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,10 +44,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.0393085, y: 1.6324079, z: 0}
+  m_LocalPosition: {x: -27, y: -8, z: 0}
   m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 441644}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &441644
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141644}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
   m_RootOrder: 0
 --- !u!50 &5000000
 Rigidbody2D:
@@ -99,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697edf18d36e8e04eaff6578133c7386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustParticles: {fileID: 0}
   brokenStone: {fileID: 100004, guid: de40835eb557a5d46b25a26cb860232c, type: 2}
   myFont:
     m_Name: 
@@ -162,6 +190,18 @@ MonoBehaviour:
     m_StretchHeight: 0
   outerColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
   innerColor: {r: .20784314, g: .172549024, b: .172549024, a: 1}
+--- !u!114 &11407326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b037031e3af8394b9ce014bafaf7d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenStone: {fileID: 100004, guid: de40835eb557a5d46b25a26cb860232c, type: 2}
 --- !u!122 &12200000
 Halo:
   m_ObjectHideFlags: 1
@@ -171,7 +211,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4280636758
+    rgba: 4280205279
   m_Size: 1.29999995
 --- !u!212 &21200000
 SpriteRenderer:
@@ -192,7 +232,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: cbd413bd2bb10e140bc2cfb70540b171, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

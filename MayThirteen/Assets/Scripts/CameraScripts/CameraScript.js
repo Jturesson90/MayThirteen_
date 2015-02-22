@@ -11,7 +11,6 @@ public var starTime : float =50.0;
 private var nativeVerticalResolution = 1080.0;
 private var nativeHorizontalResolution = 1920.0;
 private var won : boolean = false;
-private var smoothnes = 2.0;
 private var cameraFieldTarget :float  = 90;
 private var cameraWonTarget = Quaternion.Euler (0, 0, 0);
 private var wantToZoom :boolean =true;
@@ -20,7 +19,7 @@ private var endShake :boolean = false;
 var shake : boolean = false;
 private var shakeAmount : float = 0.4;
 private var haveWon = false;
-private var stopZoomOnce : boolean = true;
+
 private var extraSpeed : float = 1.0f;
 var decreaseFactor : float = 1.0;
 
@@ -83,7 +82,7 @@ function ZoomToTarget(){
 }
 
 function Update () {
-	if(controllerScript.stopZoom  && stopZoomOnce){
+	if(controllerScript.stopZoom){
 		extraSpeed = 6.0f;
 	}
 	if(wantToZoom){
@@ -125,10 +124,10 @@ function Goal(){
 	controllerScript.running = false;
 	yield WaitForSeconds(1);
 	if(TimerScript.starTimer < starTime){
-		LevelHandler.handler.UpdateArray(currentLevel, LevelState.DONE_STAR);
+		LevelHandlerC.handler.UpdateArray(currentLevel, LevelHandlerC.LevelState.DONE_STAR);
 		didBeatStarTime = true;
 	}else{
-		LevelHandler.handler.UpdateArray(currentLevel, LevelState.DONE);
+		LevelHandlerC.handler.UpdateArray(currentLevel, LevelHandlerC.LevelState.DONE);
 	}
 	
 	
