@@ -61,7 +61,7 @@ public class EarthquakeEffect : MonoBehaviour
 		IEnumerator EarthQuake (float time, bool useTime)
 		{
 			
-
+				
 				audio.volume = startAudioVolume;
 				audio.Play ();
 				audioIsPlaying = true;
@@ -71,8 +71,8 @@ public class EarthquakeEffect : MonoBehaviour
 
 				shakeAmount = amountOfShaking;
 
-
-
+				long vibrationTime = ((long)time) * 1000;
+				Vibration.Vibrate (vibrationTime);
 				if (time > audio.clip.length) {
 						time = audio.clip.length;
 				}
@@ -125,7 +125,7 @@ public class EarthquakeEffect : MonoBehaviour
 		{
 				Vector2 randomInsideUnitCircle = Random.insideUnitCircle * amount;
 				Camera.main.transform.localPosition += new Vector3 (randomInsideUnitCircle.x, randomInsideUnitCircle.y, Camera.main.transform.localPosition.z);
-				Vibrate ();
+				
 		}
 
 		private void Vibrate ()

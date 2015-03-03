@@ -6,9 +6,10 @@ public class SawBlade : MonoBehaviour
 
 		public float spinSpeed = -250f;
 		// Use this for initialization
-		void Start ()
+		private GameManageHandler manager;
+		void Awake ()
 		{
-	
+				manager = GameObject.Find ("GameManageHandler").GetComponent<GameManageHandler> ();
 		}
 	
 		// Update is called once per frame
@@ -20,6 +21,8 @@ public class SawBlade : MonoBehaviour
 		{
 				if (coll.gameObject.tag == "Ball") {
 						coll.gameObject.SendMessage ("Die", transform.position);
+						manager.Die ();
+						Vibration.Vibrate (100);
 				}
 		}
 }

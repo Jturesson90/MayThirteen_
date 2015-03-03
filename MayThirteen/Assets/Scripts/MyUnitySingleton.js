@@ -10,7 +10,7 @@ private var x =0;
 var fadeTime: float = 4f;
 private var currentScene = "";
 public var sample :float =0;
-public var timeHaha : float = 0;
+
 public static function GetInstance() : MyUnitySingleton {
     return instance;
 }
@@ -22,6 +22,7 @@ function Awake() {
         return;
     } else {
         instance = this;
+       	
     }
     
     
@@ -31,20 +32,11 @@ function Start(){
 	audioSource =  GetComponent(AudioSource);
 	AudioListener.pause = PlayerPrefs.GetInt("SoundOn",1) == 1 ? false: true;
 }
-function OnApplicationFocus(){
-	//AudioListener.pause = PlayerPrefs.GetInt("SoundOn",1) == 1 ? false : true;
-}
-function OnApplicationPause(){	
-	//AudioListener.pause = true;
-}	
-
 function Update(){
 	sample = audioSource.time;
-	timeHaha += Time.deltaTime;
+
 	if(Input.GetKeyDown(KeyCode.O)){
-		//PlayRandomSong();
 		changeSong();
-		//audioSource.timeSamples += audioSource.clip.samples/audioSource.clip.length;
 		print(audioSource.timeSamples+"\n"+audioSource.time+"\n");
 		
 	}

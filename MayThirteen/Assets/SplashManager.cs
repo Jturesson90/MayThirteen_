@@ -3,21 +3,17 @@ using System.Collections;
 
 public class SplashManager : MonoBehaviour
 {
+		float startGameIn = 2f;
 
-		// Use this for initialization
+
 		void Start ()
 		{
-	
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-	
+				Invoke ("StartGame", startGameIn);
 		}
 
 		public void StartGame ()
 		{
-				Application.LoadLevel ("Menu");
+				LevelSwitcher.levelSwitcher.SwitchLevel ("Menu");
+				//Application.LoadLevel ("Menu");
 		}
 }

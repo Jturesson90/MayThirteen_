@@ -68,9 +68,9 @@ public class GameTimeView : MonoBehaviour
 		{
 				float[] starTimes = new float[20];
 				starTimes [0] = 8f;
-				starTimes [1] = 14.5f;
-				starTimes [2] = 2f;
-				starTimes [3] = 2f;
+				starTimes [1] = 12.5f;
+				starTimes [2] = 27f;
+				starTimes [3] = 22f;
 				starTimes [4] = 17f;
 				starTimes [5] = 2f;
 				starTimes [6] = 2f;

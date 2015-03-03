@@ -8,6 +8,8 @@ public class GameManageHandler : MonoBehaviour
 		GameTimeView gameTime;
 		GameObject player;
 		
+		bool isOver = false;
+		
 		public float startOffset = 0.3f;
 
 		// Use this for initialization
@@ -30,8 +32,9 @@ public class GameManageHandler : MonoBehaviour
 		{
 				bool started = false;
 				Vector3 startPos = player.transform.position;
+				
 				while (!started) {
-
+						
 						if (HasStarted (startPos)) {
 								started = true;
 						}
@@ -49,22 +52,25 @@ public class GameManageHandler : MonoBehaviour
 		}
 		public void StartGame ()
 		{
+				
 				gameTime.StartTimer ();
 		}
 		public void Win ()
 		{
-			
-				gameUIHelper.Win ();
-				Camera.main.GetComponent<GameCameraController> ().Win ();
+				if (!isOver) {
+						isOver = true;
+						gameUIHelper.Win ();
+						Camera.main.GetComponent<GameCameraController> ().Win ();
 
-				int currentLevel = PlayerPrefs.GetInt ("CurrentLevel");
-				bool beatStarTime = gameTime.EndTimerAndDidBeatStarTime ();
-				if (beatStarTime) {
-						levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE_STAR);
-						print ("YES DU FICK EN STJÄRNA!");
-				} else {
-						levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE);
-						print ("MEEEEN JAG SUGER!");
+						int currentLevel = PlayerPrefs.GetInt ("CurrentLevel");
+						bool beatStarTime = gameTime.EndTimerAndDidBeatStarTime ();
+						if (beatStarTime) {
+								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE_STAR);
+								print ("YES DU FICK EN STJÄRNA!");
+						} else {
+								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE);
+								print ("MEEEEN JAG SUGER!");
+						}
 				}
 		}
 		public void RestartLevel ()
@@ -78,18 +84,22 @@ public class GameManageHandler : MonoBehaviour
 		
 		public void Die ()
 		{
-				gameUIHelper.Lost ();
-				gameTime.Stop ();
-				Camera.main.GetComponent<GameCameraController> ().Lost ();
-
+				if (!isOver) {
+						isOver = true;
+						gameUIHelper.Lost ();
+						gameTime.Stop ();
+						Camera.main.GetComponent<GameCameraController> ().Lost ();
+				}
 		}
 
 		public void OutOfBounds ()
 		{
-				gameUIHelper.Lost ();
-				gameTime.Stop ();
-				Camera.main.GetComponent<GameCameraController> ().Lost ();
+				if (!isOver) {
+						isOver = true;
+						gameUIHelper.Lost ();
+						gameTime.Stop ();
+						Camera.main.GetComponent<GameCameraController> ().Lost ();
+				}
 		}
-		
 
 }

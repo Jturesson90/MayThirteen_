@@ -649,120 +649,6 @@ Mesh:
     m_Extent: {x: 194.861191, y: 142.873459, z: .100000001}
   m_MeshUsageFlags: 0
   m_MeshOptimized: 0
---- !u!1 &397930352
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 7e77c876aedb4504b9a603a7f4d166b1, type: 2}
-  m_PrefabInternal: {fileID: 527916803}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 397930355}
-  - 114: {fileID: 397930354}
-  - 82: {fileID: 397930353}
-  m_Layer: 0
-  m_Name: MyMusic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &397930353
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8200000, guid: 7e77c876aedb4504b9a603a7f4d166b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 527916803}
-  m_GameObject: {fileID: 397930352}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: e0b7eee65157ca64a8b3cbcede15d3a8, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!114 &397930354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 7e77c876aedb4504b9a603a7f4d166b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 527916803}
-  m_GameObject: {fileID: 397930352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb5d61c86e81c94a93fe5d2df89aa10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundMusic:
-  - {fileID: 8300000, guid: 5cc94cf6b03f88145b680d9b03d22e3b, type: 3}
-  - {fileID: 8300000, guid: e0b7eee65157ca64a8b3cbcede15d3a8, type: 3}
-  - {fileID: 8300000, guid: fdbb9ce088c16d641871b8b36b0c7366, type: 3}
-  - {fileID: 8300000, guid: 2977d045466402a468f11c3a71898e84, type: 3}
-  - {fileID: 8300000, guid: f61f42bf075d73041904128a8d8f33c3, type: 3}
-  - {fileID: 8300000, guid: eda26296c5ba6494283108fee23c8e3c, type: 3}
-  - {fileID: 8300000, guid: d1fff2f2755851345b382968554b616b, type: 3}
-  - {fileID: 8300000, guid: 35c4a052a120aa14daf3140d88a947ff, type: 3}
-  - {fileID: 8300000, guid: 3ea537cfb450abb40a1d639e345ff706, type: 3}
-  - {fileID: 8300000, guid: 14a90bb3ba7886947b8667f8141677a1, type: 3}
-  fadeTime: 1
-  sample: 0
-  timeHaha: 0
---- !u!4 &397930355
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 7e77c876aedb4504b9a603a7f4d166b1, type: 2}
-  m_PrefabInternal: {fileID: 527916803}
-  m_GameObject: {fileID: 397930352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -569.215393, y: -377.586365, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1551182990}
-  m_RootOrder: 1
 --- !u!1 &410605166
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +796,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: e0b7eee65157ca64a8b3cbcede15d3a8, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e77c876aedb4504b9a603a7f4d166b1, type: 2}
-  m_RootGameObject: {fileID: 397930352}
+  m_RootGameObject: {fileID: 2036253383}
   m_IsPrefabParent: 0
   m_IsExploded: 1
 --- !u!1 &729885989
@@ -943,10 +829,10 @@ RectTransform:
   - {fileID: 207849779}
   m_Father: {fileID: 1866288875}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &842582646
 GameObject:
@@ -991,10 +877,15 @@ MonoBehaviour:
   stretchThreshold: .5
   createTangents: 0
   randomByWorldCoordinates: 0
+  uvOffset: {x: 0, y: 0}
+  slantAmount: 0
   createCollider: 0
   create3DCollider: 0
+  isTrigger: 0
   depth: 4
   smoothSphereCollisions: 0
+  sharpCorners: 0
+  sharpCornerDistance: 2
   surfaceOffset:
   - -.639999986
   - -.639999986
@@ -1008,6 +899,7 @@ MonoBehaviour:
   collidersBottom: 1
   colliderThickness: .100000001
   directionOverrides: 640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  vertScales: []
   terrainMaterial: {fileID: 11400000, guid: 853592345bf59ca41926f39b4a27da2d, type: 2}
 --- !u!33 &842582648
 MeshFilter:
@@ -1707,10 +1599,15 @@ MonoBehaviour:
   stretchThreshold: .5
   createTangents: 0
   randomByWorldCoordinates: 0
+  uvOffset: {x: 0, y: 0}
+  slantAmount: 0
   createCollider: 1
   create3DCollider: 0
+  isTrigger: 0
   depth: 4
   smoothSphereCollisions: 0
+  sharpCorners: 0
+  sharpCornerDistance: 2
   surfaceOffset:
   - .639999986
   - .639999986
@@ -1724,6 +1621,7 @@ MonoBehaviour:
   collidersBottom: 1
   colliderThickness: .100000001
   directionOverrides: 6400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  vertScales: []
   terrainMaterial: {fileID: 11400000, guid: 853592345bf59ca41926f39b4a27da2d, type: 2}
 --- !u!33 &1183363238
 MeshFilter:
@@ -1892,10 +1790,15 @@ MonoBehaviour:
   stretchThreshold: .5
   createTangents: 0
   randomByWorldCoordinates: 0
+  uvOffset: {x: 0, y: 0}
+  slantAmount: 0
   createCollider: 0
   create3DCollider: 0
+  isTrigger: 0
   depth: 4
   smoothSphereCollisions: 0
+  sharpCorners: 0
+  sharpCornerDistance: 2
   surfaceOffset:
   - 0
   - 0
@@ -1909,6 +1812,7 @@ MonoBehaviour:
   collidersBottom: 1
   colliderThickness: .100000001
   directionOverrides: 64000000000000006400000000000000640000006400000064000000640000006400000064000000
+  vertScales: []
   terrainMaterial: {fileID: 11400000, guid: 853592345bf59ca41926f39b4a27da2d, type: 2}
 --- !u!33 &1387643991
 MeshFilter:
@@ -2119,7 +2023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 347148801}
-  - {fileID: 397930355}
+  - {fileID: 2036253384}
   - {fileID: 919761761}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -2166,10 +2070,15 @@ MonoBehaviour:
   stretchThreshold: .5
   createTangents: 0
   randomByWorldCoordinates: 0
+  uvOffset: {x: 0, y: 0}
+  slantAmount: 0
   createCollider: 0
   create3DCollider: 0
+  isTrigger: 0
   depth: 4
   smoothSphereCollisions: 0
+  sharpCorners: 0
+  sharpCornerDistance: 2
   surfaceOffset:
   - 0
   - 0
@@ -2183,6 +2092,7 @@ MonoBehaviour:
   collidersBottom: 1
   colliderThickness: .100000001
   directionOverrides: 64000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  vertScales: []
   terrainMaterial: {fileID: 11400000, guid: 853592345bf59ca41926f39b4a27da2d, type: 2}
 --- !u!33 &1560081304
 MeshFilter:
@@ -2284,7 +2194,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 902.710815, y: 486.769531}
+  m_AnchoredPosition: {x: -10, y: -10}
   m_SizeDelta: {x: 320.600006, y: 43}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1609741646
@@ -2654,10 +2564,15 @@ MonoBehaviour:
   stretchThreshold: .5
   createTangents: 0
   randomByWorldCoordinates: 0
+  uvOffset: {x: 0, y: 0}
+  slantAmount: 0
   createCollider: 0
   create3DCollider: 0
+  isTrigger: 0
   depth: 4
   smoothSphereCollisions: 0
+  sharpCorners: 0
+  sharpCornerDistance: 2
   surfaceOffset:
   - 0
   - 0
@@ -2671,6 +2586,7 @@ MonoBehaviour:
   collidersBottom: 1
   colliderThickness: .100000001
   directionOverrides: 6400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  vertScales: []
   terrainMaterial: {fileID: 11400000, guid: 853592345bf59ca41926f39b4a27da2d, type: 2}
 --- !u!33 &1634722554
 MeshFilter:
@@ -3148,7 +3064,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: .372549027, b: .372549027, a: 1}
   m_Sprite: {fileID: 21300000, guid: 680c1fdc86d400145a3f656d7b61e80b, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3160,6 +3076,117 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1951130161}
+--- !u!1 &2036253383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 143790, guid: 7e77c876aedb4504b9a603a7f4d166b1, type: 2}
+  m_PrefabInternal: {fileID: 527916803}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2036253384}
+  - 82: {fileID: 2036253386}
+  - 114: {fileID: 2036253385}
+  m_Layer: 0
+  m_Name: MusicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2036253384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 443790, guid: 7e77c876aedb4504b9a603a7f4d166b1, type: 2}
+  m_PrefabInternal: {fileID: 527916803}
+  m_GameObject: {fileID: 2036253383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.3375225, y: -7.91374826, z: 0}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1551182990}
+  m_RootOrder: 1
+--- !u!114 &2036253385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11443792, guid: 7e77c876aedb4504b9a603a7f4d166b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 527916803}
+  m_GameObject: {fileID: 2036253383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7037eabae946dd42bf973eb6fd7b9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic:
+  - {fileID: 8300000, guid: 5cc94cf6b03f88145b680d9b03d22e3b, type: 3}
+  - {fileID: 8300000, guid: e0b7eee65157ca64a8b3cbcede15d3a8, type: 3}
+  - {fileID: 8300000, guid: fdbb9ce088c16d641871b8b36b0c7366, type: 3}
+  - {fileID: 8300000, guid: 2977d045466402a468f11c3a71898e84, type: 3}
+  - {fileID: 8300000, guid: f61f42bf075d73041904128a8d8f33c3, type: 3}
+  - {fileID: 8300000, guid: eda26296c5ba6494283108fee23c8e3c, type: 3}
+  - {fileID: 8300000, guid: d1fff2f2755851345b382968554b616b, type: 3}
+  - {fileID: 8300000, guid: 35c4a052a120aa14daf3140d88a947ff, type: 3}
+  - {fileID: 8300000, guid: 3ea537cfb450abb40a1d639e345ff706, type: 3}
+  - {fileID: 8300000, guid: 14a90bb3ba7886947b8667f8141677a1, type: 3}
+--- !u!82 &2036253386
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8243790, guid: 7e77c876aedb4504b9a603a7f4d166b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 527916803}
+  m_GameObject: {fileID: 2036253383}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 5cc94cf6b03f88145b680d9b03d22e3b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &2068845023
 Prefab:
   m_ObjectHideFlags: 0
@@ -3420,10 +3447,15 @@ MonoBehaviour:
   stretchThreshold: .5
   createTangents: 0
   randomByWorldCoordinates: 0
+  uvOffset: {x: 0, y: 0}
+  slantAmount: 0
   createCollider: 1
   create3DCollider: 0
+  isTrigger: 0
   depth: 4
   smoothSphereCollisions: 0
+  sharpCorners: 0
+  sharpCornerDistance: 2
   surfaceOffset:
   - -.639999986
   - -.639999986
@@ -3437,6 +3469,7 @@ MonoBehaviour:
   collidersBottom: 1
   colliderThickness: .100000001
   directionOverrides: 6400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  vertScales: []
   terrainMaterial: {fileID: 11400000, guid: 853592345bf59ca41926f39b4a27da2d, type: 2}
 --- !u!33 &2103908467
 MeshFilter:

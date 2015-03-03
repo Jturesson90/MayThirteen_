@@ -62,33 +62,47 @@ public class PinchZoom : MonoBehaviour
 		private void HandleStandaloneInput ()
 		{
 				if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
-						if (camera.isOrthoGraphic) {
-								camera.orthographicSize--;
-								camera.orthographicSize = Mathf.Max (camera.orthographicSize, 3f);
-								if (camera.orthographicSize > 18f) {
-										camera.orthographicSize = 18f;
-								}
-						} else {
-								Vector3 newCameraPosition = camera.transform.position;	
-								newCameraPosition.z++;
-								newCameraPosition.z = Mathf.Clamp (newCameraPosition.z, -20f, -3.5f);								
-								camera.transform.position = newCameraPosition;			
-						}
+						ZoomIn ();
 				} else if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
-						if (camera.isOrthoGraphic) {	
-								camera.orthographicSize ++;
-								camera.orthographicSize = Mathf.Max (camera.orthographicSize, 3f);
-								if (camera.orthographicSize > 18f) {
-										camera.orthographicSize = 18f;
-								}
-						} else {
-								Vector3 newCameraPosition = camera.transform.position;	
-								newCameraPosition.z--;
-								newCameraPosition.z = Mathf.Clamp (newCameraPosition.z, -20f, -3.5f);								
-								camera.transform.position = newCameraPosition;	
-				
-						}
+						ZoomOut ();
 			
+				}
+				if (Input.GetKeyDown (KeyCode.UpArrow)) {
+						ZoomIn ();
+				}
+				if (Input.GetKeyDown (KeyCode.DownArrow)) {
+						ZoomOut ();
+				}
+		}
+		private void ZoomOut ()
+		{
+				if (camera.isOrthoGraphic) {	
+						camera.orthographicSize ++;
+						camera.orthographicSize = Mathf.Max (camera.orthographicSize, 3f);
+						if (camera.orthographicSize > 18f) {
+								camera.orthographicSize = 18f;
+						}
+				} else {
+						Vector3 newCameraPosition = camera.transform.position;	
+						newCameraPosition.z--;
+						newCameraPosition.z = Mathf.Clamp (newCameraPosition.z, -20f, -3.5f);								
+						camera.transform.position = newCameraPosition;	
+			
+				}
+		}
+		private void ZoomIn ()
+		{
+				if (camera.isOrthoGraphic) {
+						camera.orthographicSize--;
+						camera.orthographicSize = Mathf.Max (camera.orthographicSize, 3f);
+						if (camera.orthographicSize > 18f) {
+								camera.orthographicSize = 18f;
+						}
+				} else {
+						Vector3 newCameraPosition = camera.transform.position;	
+						newCameraPosition.z++;
+						newCameraPosition.z = Mathf.Clamp (newCameraPosition.z, -20f, -3.5f);								
+						camera.transform.position = newCameraPosition;			
 				}
 		}
 }

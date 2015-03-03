@@ -16,11 +16,14 @@ public class PauseArrow : MonoBehaviour
 				
 				
 				transform.position = camera.transform.position;
-
-				Vector3 newPosition = new Vector3 ((player.transform.position.x) - camera.transform.position.x, (player.transform.position.y + 0.5f) - camera.transform.position.y, player.transform.position.z - camera.transform.position.z);
-			
+				//transform.position = player.transform.position;
+				//Vector3 newPosition = new Vector3 ((player.transform.position.x) - camera.transform.position.x, (player.transform.position.y + 0.5f) - camera.transform.position.y, player.transform.position.z - camera.transform.position.z);
+				//Vector3 newPosition = new Vector3 ((camera.transform.position.x) - player.transform.position.x, (camera.transform.position.y) - (player.transform.position.y) + 1.5f, camera.transform.position.z - player.transform.position.z);
+				Vector3 abovePlayerPosition = new Vector3 (player.transform.position.x - 0.25f, player.transform.position.y + 1f, player.transform.position.z);
+				Vector3 newPosition = abovePlayerPosition - camera.transform.position;
 				newPosition.Normalize ();
-				transform.position += newPosition * 18f;	
+				transform.position += newPosition * 25f;
+
 
 		}
 }
