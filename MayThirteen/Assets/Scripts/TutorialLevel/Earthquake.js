@@ -19,8 +19,8 @@ function Start () {
 	if(camSci !=null){
 		
 		camSci.StartShake();
-		audio.volume=1.0;
- 		audio.Play();
+		GetComponent.<AudioSource>().volume=1.0;
+ 		GetComponent.<AudioSource>().Play();
  		hasPlayed= true;
 	}
 	pause.showGUI = false;
@@ -29,10 +29,10 @@ function Start () {
 private var helper :boolean = false;
 function Update () {
 	if(!helper)controller.running=false;
-	if(Time.timeScale == 0.0 && audio.isPlaying){
-		audio.Pause();
-	}else if(Time.timeScale == 1.0 && !audio.isPlaying && hasPlayed){
-		audio.Play();
+	if(Time.timeScale == 0.0 && GetComponent.<AudioSource>().isPlaying){
+		GetComponent.<AudioSource>().Pause();
+	}else if(Time.timeScale == 1.0 && !GetComponent.<AudioSource>().isPlaying && hasPlayed){
+		GetComponent.<AudioSource>().Play();
 	}
 	timer += Time.deltaTime;
 	if(timer >8.0f && !helper){
@@ -61,7 +61,7 @@ function FadeAudio (timer : float, fadeType : Fade) {
  
     while (i <= 1.0) {
         i += step * Time.deltaTime;
-        audio.volume = Mathf.Lerp(start, end, i);
+        GetComponent.<AudioSource>().volume = Mathf.Lerp(start, end, i);
         yield;
     }
 }

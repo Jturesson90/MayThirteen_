@@ -19,10 +19,10 @@ function Start () {
 }
 
 function Update () {
-	if(Time.timeScale == 0.0 && audio.isPlaying){
-		audio.Pause();
-	}else if(Time.timeScale == 1.0 && !audio.isPlaying && hasPlayed){
-		audio.Play();
+	if(Time.timeScale == 0.0 && GetComponent.<AudioSource>().isPlaying){
+		GetComponent.<AudioSource>().Pause();
+	}else if(Time.timeScale == 1.0 && !GetComponent.<AudioSource>().isPlaying && hasPlayed){
+		GetComponent.<AudioSource>().Play();
 	}
 	
 }
@@ -47,13 +47,13 @@ function StartAnimationWithDelay(index : int, timer: float){
 	//print(index+"\t"+wallIndex);
 	if(wallIndex == index){
 		yield WaitForSeconds(timer);
-		transform.animation.Play("SlideUp");
+		transform.GetComponent.<Animation>().Play("SlideUp");
 	}
 }
 function StartAnimation(){
  	cameraScript.StartShake();
- 	audio.volume=1.0;
- 	audio.Play();
+ 	GetComponent.<AudioSource>().volume=1.0;
+ 	GetComponent.<AudioSource>().Play();
  	hasPlayed= true;
 }
 function AtEndOfAnimation(){
@@ -71,7 +71,7 @@ function FadeAudio (timer : float, fadeType : Fade) {
  
     while (i <= 1.0) {
         i += step * Time.deltaTime;
-        audio.volume = Mathf.Lerp(start, end, i);
+        GetComponent.<AudioSource>().volume = Mathf.Lerp(start, end, i);
         yield;
     }
     Destroy(gameObject);

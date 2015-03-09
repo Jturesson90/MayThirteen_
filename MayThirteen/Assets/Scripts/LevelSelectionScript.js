@@ -51,14 +51,14 @@ function CheckOpen(){
 }
 function SetNotOpen(){
 
-	renderer.material.color = Color(0.3,0.3,0.3);	
+	GetComponent.<Renderer>().material.color = Color(0.3,0.3,0.3);	
 }
 function SetStar(arg : boolean){
 	transform.FindChild("star").gameObject.SetActive(arg);
 }
 function SetDoneIcon(){
 	var newColor : Color = Color32(254,34,34,255);
-	renderer.material.color  = newColor;
+	GetComponent.<Renderer>().material.color  = newColor;
 	//renderer.material.color = Color.red;
 	//GetComponent(SpriteRenderer).sprite = doneSprite;
 }

@@ -29,7 +29,7 @@ function Update () {
 }
 function OnTriggerEnter2D(hit :  Collider2D){
 	
-	if(renderer.enabled == false){
+	if(GetComponent.<Renderer>().enabled == false){
 		return;
 	}
 	if(hit.gameObject.tag=="OutOfBounds"){	
@@ -69,9 +69,9 @@ function Die(){
 	halo = GetComponent("Halo"); 
 	halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
 	cameraScript.StopFollow(canBeDead);
-	rigidbody2D.isKinematic = true;
+	GetComponent.<Rigidbody2D>().isKinematic = true;
 	dead = true;
-	collider2D.enabled = false;
+	GetComponent.<Collider2D>().enabled = false;
 	instantiateBrokenStone();
 	
 }

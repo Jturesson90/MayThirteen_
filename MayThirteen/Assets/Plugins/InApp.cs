@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using OnePF;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
 public class InApp : MonoBehaviour
 {
 		public static InApp inApp;
 		public string inappLabel = "";
 		const string NO_ADS = "no_ads";
+		
 		bool _isInitialized = false;
 		// Use this for initialization
 	#pragma warning disable 0414
@@ -39,15 +40,21 @@ public class InApp : MonoBehaviour
 
 		void init ()
 		{
-//				Debug.Log ("INIT");
-
+				Debug.Log ("OpenIab INIT");
+				
 				var public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgED1o3jgkaOy8DCSAd4UucidG5/0i4FwrTc/fKr74VAPwtn1tY6OgNG1X2jrjOwkvQthXD7oMCK7rMk6il3vBC0Q2j07rSRJHY3e2rRc1ejxVq6OM0YZXd9OxyRHl1iz0FuhWUfXQavFiPn6MWqxtk/t/gXORCjYguoCOHFvGFYrAvQzH99eJ+OyeRv6SmS7F799vTIaqjIfClT/ZgGGxdGdgkLCVLKDkt8hAdLvf690jsUmTsDaEWrrSz/cvD3uLBxiSewyS+Eb4DqVuYMHBmVn+tNtR+yLrrm7sBYx34xlxSIF3XIk8dEKV7grhDx+9iD4SvokwJEftC1bYlJWzwIDAQAB";
 				var options = new Options ();
+				options.checkInventoryTimeoutMs = Options.INVENTORY_CHECK_TIMEOUT_MS * 2;
+				options.discoveryTimeoutMs = Options.DISCOVER_TIMEOUT_MS * 2;
+				options.checkInventory = false;
 				options.verifyMode = OptionsVerifyMode.VERIFY_SKIP;
 				options.prefferedStoreNames = new string[] {
 						OpenIAB_Android.STORE_GOOGLE,
 						OpenIAB_iOS.STORE
 				};
+				options.storeSearchStrategy = SearchStrategy.BEST_FIT;
+				options.availableStoreNames = new string[] { OpenIAB_Android.STORE_GOOGLE,
+			OpenIAB_iOS.STORE };
 				options.storeKeys = new Dictionary<string, string> {
 					{OpenIAB_Android.STORE_GOOGLE, public_key}
 				};
@@ -61,11 +68,13 @@ public class InApp : MonoBehaviour
 		public void BuyNoAds ()
 		{			
 				print ("BUYNOADS");
+			
 				if (!_isInitialized)
 						return;
 				print ("BUY is initialized");
 				
-				OpenIAB.purchaseProduct (NO_ADS);	
+				OpenIAB.purchaseProduct (NO_ADS);
+				
 				//OpenIAB.purchaseProduct ("android.test.purchased");
 		}
 
@@ -85,7 +94,6 @@ public class InApp : MonoBehaviour
 		{
 				return _isInitialized;
 		}
-
 		private void OnEnable ()
 		{
 				// Listen to all events for illustration purposes
@@ -98,7 +106,6 @@ public class InApp : MonoBehaviour
 				OpenIABEventManager.consumePurchaseSucceededEvent += consumePurchaseSucceededEvent;
 				OpenIABEventManager.consumePurchaseFailedEvent += consumePurchaseFailedEvent;
 		}
-
 		private void OnDisable ()
 		{
 				// Remove all event handlers
@@ -116,7 +123,7 @@ public class InApp : MonoBehaviour
 		{
 				_isInitialized = true;
 				
-				//	Debug.Log ("billingSupportedEvent");
+				Debug.Log ("billingSupportedEvent");
 				OpenIAB.queryInventory ();
 
 		}

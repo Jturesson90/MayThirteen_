@@ -57,14 +57,14 @@ function ZoomToTarget(){
  	if(range < 3){
     	speed=3;
     }
- 	if((camera.orthographicSize >=10) && camera.isOrthoGraphic){
+ 	if((GetComponent.<Camera>().orthographicSize >=10) && GetComponent.<Camera>().orthographic){
  	 	if(!orthoHelperOneTime){
-	        camera.orthographicSize -= extraSpeed * speed * Time.deltaTime;
+	        GetComponent.<Camera>().orthographicSize -= extraSpeed * speed * Time.deltaTime;
         	
 		}
- 	}else if(camera.orthographicSize <= 10){
+ 	}else if(GetComponent.<Camera>().orthographicSize <= 10){
         orthoHelperOneTime = true;
-		camera.orthographicSize= 10;
+		GetComponent.<Camera>().orthographicSize= 10;
 	}
  	checkRange = extraSpeed > 1.0 ? 0.3f : 0.1f; 
    	if (range > checkRange){
@@ -72,10 +72,10 @@ function ZoomToTarget(){
         dir = dir.normalized;
         transform.Translate(extraSpeed * dir * speed * Time.deltaTime, Space.World);
    }
-   else if(orthoHelperOneTime || !camera.isOrthoGraphic){
+   else if(orthoHelperOneTime || !GetComponent.<Camera>().orthographic){
        wantToZoom=false;
-       camera.orthographicSize= 10;
-       camera.transform.position.z = -10;
+       GetComponent.<Camera>().orthographicSize= 10;
+       GetComponent.<Camera>().transform.position.z = -10;
 	   controllerScript.running = true;
     }
    

@@ -49,7 +49,7 @@ public class LevelSelectionLevel : MonoBehaviour
 						if (Input.GetTouch (i).phase == TouchPhase.Began) {
 								Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (i).position);
 								Vector2 touchPos = new Vector2 (wp.x, wp.y);
-								if (collider2D == Physics2D.OverlapPoint (touchPos) && Physics2D.OverlapPoint (touchPos).gameObject.transform.name == "levelSelect_" + selectedLevel) {
+								if (GetComponent<Collider2D>() == Physics2D.OverlapPoint (touchPos) && Physics2D.OverlapPoint (touchPos).gameObject.transform.name == "levelSelect_" + selectedLevel) {
 										if (isOpen) {	
 												PlayerPrefs.SetInt ("CurrentLevel", selectedLevel);
 												manager.LoadLevel ("Level" + selectedLevel);
@@ -127,7 +127,7 @@ public class LevelSelectionLevel : MonoBehaviour
 		void SetNotOpen ()
 		{
 				Color newColor = new Color (0.3f, 0.3f, 0.3f);	
-				renderer.material.color = newColor;
+				GetComponent<Renderer>().material.color = newColor;
 		}
 		void  SetStar (bool arg)
 		{
@@ -136,6 +136,6 @@ public class LevelSelectionLevel : MonoBehaviour
 		void SetDoneIcon ()
 		{
 				Color newColor = new Color32 (254, 34, 34, 255);
-				renderer.material.color = newColor;
+				GetComponent<Renderer>().material.color = newColor;
 		}
 }

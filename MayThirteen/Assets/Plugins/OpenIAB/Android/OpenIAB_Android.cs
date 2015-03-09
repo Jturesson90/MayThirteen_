@@ -1,10 +1,29 @@
-﻿using UnityEngine;
+﻿/*******************************************************************************
+ * Copyright 2012-2014 One Platform Foundation
+ *
+ *       Licensed under the Apache License, Version 2.0 (the "License");
+ *       you may not use this file except in compliance with the License.
+ *       You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *       Unless required by applicable law or agreed to in writing, software
+ *       distributed under the License is distributed on an "AS IS" BASIS,
+ *       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *       See the License for the specific language governing permissions and
+ *       limitations under the License.
+ ******************************************************************************/
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
 
 namespace OnePF
 {
+    /**
+     * Android billing implentation
+     */
     public class OpenIAB_Android
 #if UNITY_ANDROID
  : IOpenIAB
@@ -14,10 +33,29 @@ namespace OnePF
         public static readonly string STORE_AMAZON;
         public static readonly string STORE_SAMSUNG;
         public static readonly string STORE_NOKIA;
+        public static readonly string STORE_SKUBIT;
+        public static readonly string STORE_SKUBIT_TEST;
         public static readonly string STORE_YANDEX;
+        public static readonly string STORE_APPLAND;
+        public static readonly string STORE_SLIDEME;
+        public static readonly string STORE_APTOIDE;
 
 #if UNITY_ANDROID
         private static AndroidJavaObject _plugin;
+
+        IntPtr ConvertToStringJNIArray(string[] array)
+        {
+            IntPtr stringClass = AndroidJNI.FindClass("java/lang/String");
+            IntPtr initialString = AndroidJNI.NewStringUTF("");
+            IntPtr javaStringArray = AndroidJNI.NewObjectArray(array.Length, stringClass, initialString);
+
+            for (int i = 0; i < array.Length; ++i)
+            {
+                AndroidJNI.SetObjectArrayElement(javaStringArray, i, AndroidJNI.NewStringUTF(array[i]));
+            }
+
+            return javaStringArray;
+        }
 
         static OpenIAB_Android()
         {
@@ -27,7 +65,12 @@ namespace OnePF
                 STORE_AMAZON = "STORE_AMAZON";
                 STORE_SAMSUNG = "STORE_SAMSUNG";
                 STORE_NOKIA = "STORE_NOKIA";
+                STORE_SKUBIT = "STORE_SKUBIT";
+                STORE_SKUBIT_TEST = "STORE_SKUBIT_TEST";
                 STORE_YANDEX = "STORE_YANDEX";
+                STORE_APPLAND = "STORE_APPLAND";
+                STORE_SLIDEME = "STORE_SLIDEME";
+                STORE_APTOIDE = "STORE_APTOIDE";
                 return;
             }
 
@@ -37,12 +80,21 @@ namespace OnePF
             using (var pluginClass = new AndroidJavaClass("org.onepf.openiab.UnityPlugin"))
             {
                 _plugin = pluginClass.CallStatic<AndroidJavaObject>("instance");
-                STORE_GOOGLE = pluginClass.GetStatic<string>("STORE_GOOGLE");
-                STORE_AMAZON = pluginClass.GetStatic<string>("STORE_AMAZON");
-                STORE_SAMSUNG = pluginClass.GetStatic<string>("STORE_SAMSUNG");
-                STORE_NOKIA = pluginClass.GetStatic<string>("STORE_NOKIA");
-                STORE_YANDEX = pluginClass.GetStatic<string>("STORE_YANDEX");
             }
+
+            using (var pluginClass = new AndroidJavaClass("org.onepf.oms.OpenIabHelper"))
+            {
+                STORE_GOOGLE =      pluginClass.GetStatic<string>("NAME_GOOGLE");
+                STORE_AMAZON =      pluginClass.GetStatic<string>("NAME_AMAZON");
+                STORE_SAMSUNG =     pluginClass.GetStatic<string>("NAME_SAMSUNG");
+                STORE_NOKIA =       pluginClass.GetStatic<string>("NAME_NOKIA");
+                STORE_SKUBIT =      pluginClass.GetStatic<string>("NAME_SKUBIT");
+                STORE_SKUBIT_TEST = pluginClass.GetStatic<string>("NAME_SKUBIT_TEST");
+                STORE_YANDEX =      pluginClass.GetStatic<string>("NAME_YANDEX");
+                STORE_APPLAND =     pluginClass.GetStatic<string>("NAME_APPLAND");
+                STORE_SLIDEME =     pluginClass.GetStatic<string>("NAME_SLIDEME");
+                STORE_APTOIDE =     pluginClass.GetStatic<string>("NAME_APTOIDE");
+            }         
         }
 
         private bool IsDevice()
@@ -58,8 +110,7 @@ namespace OnePF
         private AndroidJavaObject CreateJavaHashMap(Dictionary<string, string> storeKeys)
         {
             var j_HashMap = new AndroidJavaObject("java.util.HashMap");
-            IntPtr method_Put = AndroidJNIHelper.GetMethodID(j_HashMap.GetRawClass(), "put",
-                "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
+            IntPtr method_Put = AndroidJNIHelper.GetMethodID(j_HashMap.GetRawClass(), "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
 
             if (storeKeys != null)
             {
@@ -90,24 +141,46 @@ namespace OnePF
                 return;
             }
 
-            using (var j_options = new AndroidJavaObject("org.onepf.oms.OpenIabHelper$Options"))
+            using (var j_optionsBuilder = new AndroidJavaObject("org.onepf.oms.OpenIabHelper$Options$Builder"))
             {
-                j_options.Set<int>("discoveryTimeoutMs", options.discoveryTimeoutMs);
-                j_options.Set<bool>("checkInventory", options.checkInventory);
-                j_options.Set<int>("checkInventoryTimeoutMs", options.checkInventoryTimeoutMs);
-                j_options.Set<int>("verifyMode", (int) options.verifyMode);
+                var clazz = j_optionsBuilder.GetRawClass();
+                var objPtr = j_optionsBuilder.GetRawObject();
 
-                AndroidJavaObject j_storeKeys = CreateJavaHashMap(options.storeKeys);
-                j_options.Set("storeKeys", j_storeKeys);
-                j_storeKeys.Dispose();
+                j_optionsBuilder.Call<AndroidJavaObject>("setDiscoveryTimeout", options.discoveryTimeoutMs)
+                                .Call<AndroidJavaObject>("setCheckInventory", options.checkInventory)
+                                .Call<AndroidJavaObject>("setCheckInventoryTimeout", options.checkInventoryTimeoutMs)
+                                .Call<AndroidJavaObject>("setVerifyMode", (int) options.verifyMode)
+                                .Call<AndroidJavaObject>("setStoreSearchStrategy", (int) options.storeSearchStrategy);
 
-                j_options.Set("prefferedStoreNames", AndroidJNIHelper.ConvertToJNIArray(options.prefferedStoreNames));
+                if (options.samsungCertificationRequestCode > 0)
+                    j_optionsBuilder.Call<AndroidJavaObject>("setSamsungCertificationRequestCode", options.samsungCertificationRequestCode);
 
-                _plugin.Call("initWithOptions", j_options);
+                foreach (var pair in options.storeKeys)
+                    j_optionsBuilder.Call<AndroidJavaObject>("addStoreKey", pair.Key, pair.Value);
+
+                var addPreferredStoreNameMethod = AndroidJNI.GetMethodID(clazz, "addPreferredStoreName", "([Ljava/lang/String;)Lorg/onepf/oms/OpenIabHelper$Options$Builder;");
+                var prms = new jvalue[1];
+                prms[0].l = ConvertToStringJNIArray(options.prefferedStoreNames);
+                AndroidJNI.CallObjectMethod(objPtr, addPreferredStoreNameMethod, prms);
+
+                var addAvailableStoreNameMethod = AndroidJNI.GetMethodID(clazz, "addAvailableStoreNames", "([Ljava/lang/String;)Lorg/onepf/oms/OpenIabHelper$Options$Builder;");
+                prms = new jvalue[1];
+                prms[0].l = ConvertToStringJNIArray(options.availableStoreNames);
+                AndroidJNI.CallObjectMethod(objPtr, addAvailableStoreNameMethod, prms);
+
+                // Build options instance
+                var buildMethod = AndroidJNI.GetMethodID(clazz, "build", "()Lorg/onepf/oms/OpenIabHelper$Options;");
+                var j_options = AndroidJNI.CallObjectMethod(objPtr, buildMethod, new jvalue[0]);
+
+                // UnityPlugin.initWithOptions(OpenIabHelper.Options options);
+                var initWithOptionsMethod = AndroidJNI.GetMethodID(_plugin.GetRawClass(), "initWithOptions", "(Lorg/onepf/oms/OpenIabHelper$Options;)V");
+                prms = new jvalue[1];
+                prms[0].l = j_options;
+                AndroidJNI.CallVoidMethod(_plugin.GetRawObject(), initWithOptionsMethod, prms);
             }
         }
 
-        public void init(Dictionary<string, string> storeKeys=null)
+        public void init(Dictionary<string, string> storeKeys = null)
         {
             if (!IsDevice()) return;
 
@@ -121,10 +194,9 @@ namespace OnePF
 
         public void mapSku(string sku, string storeName, string storeSku)
         {
-            if (IsDevice())
-            {
-                _plugin.Call("mapSku", sku, storeName, storeSku);
-            }
+            if (!IsDevice()) return;
+
+            _plugin.Call("mapSku", sku, storeName, storeSku);
         }
 
         public void unbindService()
@@ -166,12 +238,16 @@ namespace OnePF
             {
                 return;
             }
-            jvalue[] args = AndroidJNIHelper.CreateJNIArgArray(new object[] { inAppSkus, subsSkus });
+
+            jvalue[] args = new jvalue[2];
+            args[0].l = ConvertToStringJNIArray(inAppSkus);
+            args[1].l = ConvertToStringJNIArray(subsSkus);
+
             IntPtr methodId = AndroidJNI.GetMethodID(_plugin.GetRawClass(), "queryInventory", "([Ljava/lang/String;[Ljava/lang/String;)V");
             AndroidJNI.CallVoidMethod(_plugin.GetRawObject(), methodId, args);
         }
 
-        public void purchaseProduct(string sku, string developerPayload="")
+        public void purchaseProduct(string sku, string developerPayload = "")
         {
             if (!IsDevice())
             {
@@ -182,7 +258,7 @@ namespace OnePF
             _plugin.Call("purchaseProduct", sku, developerPayload);
         }
 
-        public void purchaseSubscription(string sku, string developerPayload="")
+        public void purchaseSubscription(string sku, string developerPayload = "")
         {
             if (!IsDevice())
             {

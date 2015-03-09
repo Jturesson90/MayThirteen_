@@ -21,6 +21,7 @@ public class LevelSwitcher : MonoBehaviour
 		void Start ()
 		{
 				if (shouldFadeOnStart) {
+						
 						FadeToClear ();
 				} else {
 						FadeToClear (0f);

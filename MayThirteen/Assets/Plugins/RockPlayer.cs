@@ -36,15 +36,15 @@ public class RockPlayer : MonoBehaviour
 		
 		public void Die ()
 		{
-				renderer.enabled = false;
-				rigidbody2D.isKinematic = true;
+				GetComponent<Renderer>().enabled = false;
+				GetComponent<Rigidbody2D>().isKinematic = true;
 				
 				Component halo = GetComponent ("Halo");
 				if (halo != null) {
 						halo.GetType ().GetProperty ("enabled").SetValue (halo, false, null);
 				}
 				InstantiateBrokenStone ();
-				collider2D.enabled = false;
+				GetComponent<Collider2D>().enabled = false;
 		}
 		private void InstantiateBrokenStone ()
 		{

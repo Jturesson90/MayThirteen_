@@ -10,7 +10,7 @@ private var cameraZoomSpot : GameObject;
 private var controllerScript : ControllerScript;
 
 function Awake(){
-	myFieldOfView = camera.fieldOfView;
+	myFieldOfView = GetComponent.<Camera>().fieldOfView;
 	cameraZoomSpot = GameObject.FindGameObjectWithTag("CameraZoomSpot");
 	controllerScript = GameObject.Find("Camera").GetComponent("ControllerScript");
 }
@@ -37,15 +37,15 @@ function Update()
         var deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
         // If the camera is orthographic...
-        if (camera.isOrthoGraphic)
+        if (GetComponent.<Camera>().orthographic)
         {
             // ... change the orthographic size based on the change in distance between the touches.
-            camera.orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
+            GetComponent.<Camera>().orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
 
             // Make sure the orthographic size never drops below zero.
-            camera.orthographicSize = Mathf.Max(camera.orthographicSize, 3f);
-            if(camera.orthographicSize > 18f){
-            	camera.orthographicSize = 18f;
+            GetComponent.<Camera>().orthographicSize = Mathf.Max(GetComponent.<Camera>().orthographicSize, 3f);
+            if(GetComponent.<Camera>().orthographicSize > 18f){
+            	GetComponent.<Camera>().orthographicSize = 18f;
             }
             //camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, 18f, 1f);
         }
@@ -53,24 +53,24 @@ function Update()
         {
             // Otherwise change the field of view based on the change in distance between the touches.
            // camera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
-			camera.transform.position.z -= deltaMagnitudeDiff * perspectiveZoomSpeed;
+			GetComponent.<Camera>().transform.position.z -= deltaMagnitudeDiff * perspectiveZoomSpeed;
             // Clamp the field of view to make sure it's between 0 and 180.
             //camera.fieldOfView = Mathf.Clamp(camera.fieldOfView, 60f, 142.0f);
-            camera.transform.position.z = Mathf.Clamp(camera.transform.position.z, -20f, -3.5f);
+            GetComponent.<Camera>().transform.position.z = Mathf.Clamp(GetComponent.<Camera>().transform.position.z, -20f, -3.5f);
            
         }
     }
 
      if (Input.GetAxis("Mouse ScrollWheel") > 0){
-     	 if (camera.isOrthoGraphic)
+     	 if (GetComponent.<Camera>().orthographic)
         {
             // ... change the orthographic size based on the change in distance between the touches.
-            camera.orthographicSize--;
+            GetComponent.<Camera>().orthographicSize--;
 
             // Make sure the orthographic size never drops below zero.
-            camera.orthographicSize = Mathf.Max(camera.orthographicSize, 3f);
-            if(camera.orthographicSize > 18f){
-            	camera.orthographicSize = 18f;
+            GetComponent.<Camera>().orthographicSize = Mathf.Max(GetComponent.<Camera>().orthographicSize, 3f);
+            if(GetComponent.<Camera>().orthographicSize > 18f){
+            	GetComponent.<Camera>().orthographicSize = 18f;
             }
             //camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, 18f, 1f);
         }
@@ -78,23 +78,23 @@ function Update()
         {
             // Otherwise change the field of view based on the change in distance between the touches.
            // camera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
-			camera.transform.position.z++;
+			GetComponent.<Camera>().transform.position.z++;
             // Clamp the field of view to make sure it's between 0 and 180.
             //camera.fieldOfView = Mathf.Clamp(camera.fieldOfView, 60f, 142.0f);
-            camera.transform.position.z = Mathf.Clamp(camera.transform.position.z, -20f, -3.5f);
+            GetComponent.<Camera>().transform.position.z = Mathf.Clamp(GetComponent.<Camera>().transform.position.z, -20f, -3.5f);
            
         }
      
      }else if(Input.GetAxis("Mouse ScrollWheel") < 0){
-      if (camera.isOrthoGraphic)
+      if (GetComponent.<Camera>().orthographic)
         {
             // ... change the orthographic size based on the change in distance between the touches.
-            camera.orthographicSize ++;
+            GetComponent.<Camera>().orthographicSize ++;
 
             // Make sure the orthographic size never drops below zero.
-            camera.orthographicSize = Mathf.Max(camera.orthographicSize, 3f);
-            if(camera.orthographicSize > 18f){
-            	camera.orthographicSize = 18f;
+            GetComponent.<Camera>().orthographicSize = Mathf.Max(GetComponent.<Camera>().orthographicSize, 3f);
+            if(GetComponent.<Camera>().orthographicSize > 18f){
+            	GetComponent.<Camera>().orthographicSize = 18f;
             }
             //camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, 18f, 1f);
         }
@@ -102,10 +102,10 @@ function Update()
         {
             // Otherwise change the field of view based on the change in distance between the touches.
            // camera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
-			camera.transform.position.z --;
+			GetComponent.<Camera>().transform.position.z --;
             // Clamp the field of view to make sure it's between 0 and 180.
             //camera.fieldOfView = Mathf.Clamp(camera.fieldOfView, 60f, 142.0f);
-            camera.transform.position.z = Mathf.Clamp(camera.transform.position.z, -20f, -3.5f);
+            GetComponent.<Camera>().transform.position.z = Mathf.Clamp(GetComponent.<Camera>().transform.position.z, -20f, -3.5f);
            
         }
      

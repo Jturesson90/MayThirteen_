@@ -61,7 +61,7 @@ function FadeAudio (timer : float, fadeType : Fade, aC : AudioClip) {
  
         i += step * Time.deltaTime;
  
-        audio.volume = Mathf.Lerp(start, end, i);
+        GetComponent.<AudioSource>().volume = Mathf.Lerp(start, end, i);
     yield;
 	}
 	if(i >= 0.95&& fadeType == Fade.In){
@@ -84,7 +84,7 @@ function FadeAudio (timer : float, fadeType : Fade) {
  
         i += step * Time.deltaTime;
  
-        audio.volume = Mathf.Lerp(start, end, i);
+        GetComponent.<AudioSource>().volume = Mathf.Lerp(start, end, i);
     yield;
  }
 }
