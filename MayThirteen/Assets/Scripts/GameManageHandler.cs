@@ -66,10 +66,10 @@ public class GameManageHandler : MonoBehaviour
 						bool beatStarTime = gameTime.EndTimerAndDidBeatStarTime ();
 						if (beatStarTime) {
 								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE_STAR);
-								print ("YES DU FICK EN STJÄRNA!");
+								
 						} else {
 								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE);
-								print ("MEEEEN JAG SUGER!");
+							
 						}
 				}
 		}

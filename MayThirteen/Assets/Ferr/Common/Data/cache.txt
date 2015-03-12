@@ -1,6 +1,5 @@
 
 [Ferr2DT_TerrainMaterial]
-Assets/Prefabs/PrefabCamera.prefab
 Assets/Plugins/OpenIAB/Prefabs/OpenIABEventManager.prefab
 Assets/Prefabs/OutOfBounds.prefab
 Assets/Prefabs/LevelSwitcher.prefab
@@ -32,9 +31,9 @@ Assets/Prefabs/BackgroundClouds.prefab
 Assets/Prefabs/SawbladeCorner 1.prefab
 Assets/Prefabs/LittleRockstarAds.prefab
 Assets/Prefabs/InAppPurchase.prefab
+Assets/Prefabs/LittleRockstarGoogleGame.prefab
 
 [Ferr2DT_PathTerrain]
-Assets/Prefabs/PrefabCamera.prefab
 Assets/Plugins/OpenIAB/Prefabs/OpenIABEventManager.prefab
 Assets/Prefabs/OutOfBounds.prefab
 Assets/Prefabs/LevelSwitcher.prefab
@@ -66,3 +65,4 @@ Assets/Prefabs/LevelHandler.prefab
 Assets/Prefabs/BackgroundClouds.prefab
 Assets/Prefabs/SawbladeCorner 1.prefab
 Assets/Prefabs/LittleRockstarAds.prefab
+Assets/Prefabs/LittleRockstarGoogleGame.prefab

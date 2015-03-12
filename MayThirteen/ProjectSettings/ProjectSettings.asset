@@ -74,14 +74,14 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.drolegames.littlerockstar
-  bundleVersion: 1.0.8
+  bundleIdentifier: com.drolegamesj.littlerockstar
+  bundleVersion: 1.0.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   productGUID: e1e15c7f8da69b442b394137647fab31
-  AndroidBundleVersionCode: 9
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -136,18 +136,6 @@ PlayerSettings:
     m_Icons:
     - m_Icon: {fileID: 2800000, guid: a426f1c92195b1d4f81da765541fd53d, type: 3}
       m_Size: 128
-  - m_BuildTarget: Android
-    m_Icons:
-    - m_Icon: {fileID: 2800000, guid: 420261dadebec1048840aa7f74a6423d, type: 3}
-      m_Size: 144
-    - m_Icon: {fileID: 2800000, guid: ab70ead2c15c67f4dbc8ab40578bdd3c, type: 3}
-      m_Size: 96
-    - m_Icon: {fileID: 2800000, guid: 8d952785a9ca55e4b8155ba9bb6a6e83, type: 3}
-      m_Size: 72
-    - m_Icon: {fileID: 2800000, guid: 448c86e65aab8954e88c20ed373e413b, type: 3}
-      m_Size: 48
-    - m_Icon: {fileID: 2800000, guid: a8bf9d02566113c4fb972459549dac12, type: 3}
-      m_Size: 36
   - m_BuildTarget: iPhone
     m_Icons:
     - m_Icon: {fileID: 2800000, guid: a426f1c92195b1d4f81da765541fd53d, type: 3}

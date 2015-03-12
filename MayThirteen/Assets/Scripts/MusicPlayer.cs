@@ -45,7 +45,7 @@ public class MusicPlayer : MonoBehaviour
 						CheckLevel ();
 				}
 
-				currentTime = GetComponent<AudioSource>().time;
+				currentTime = GetComponent<AudioSource> ().time;
 		}
 	#endif
 		void OnLevelWasLoaded ()
@@ -99,17 +99,20 @@ public class MusicPlayer : MonoBehaviour
 		}
 		void PlaySong (int id)
 		{
-				float timeInSamples = GetComponent<AudioSource>().time;
+				float timeInSamples = GetComponent<AudioSource> ().time;
+				AudioSource audioSource = GetComponent<AudioSource> ();
 				float timeSince = Time.time;
-				GetComponent<AudioSource>().clip = backgroundMusic [id];
-				if (GetComponent<AudioSource>().clip != currentClip) {
+				GetComponent<AudioSource> ().clip = backgroundMusic [id];
+				if (GetComponent<AudioSource> ().clip != currentClip) {
 			
-						currentClip = GetComponent<AudioSource>().clip;
-
-						GetComponent<AudioSource>().Play ();
+						currentClip = GetComponent<AudioSource> ().clip;
+						
+						audioSource.Play ();
+		
+						
 						timeSince = Time.time - timeSince;
 			
-						GetComponent<AudioSource>().time = timeInSamples + timeSince;
+						GetComponent<AudioSource> ().time = timeInSamples + timeSince;
 				}
 		}
 		void RandomSongType (SongType type)

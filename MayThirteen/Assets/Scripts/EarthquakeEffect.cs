@@ -15,7 +15,7 @@ public class EarthquakeEffect : MonoBehaviour
 
 		void Awake ()
 		{
-				startAudioVolume = GetComponent<AudioSource>().volume;
+				startAudioVolume = GetComponent<AudioSource> ().volume;
 		}
 		void FixedUpdate ()
 		{
@@ -57,13 +57,15 @@ public class EarthquakeEffect : MonoBehaviour
 		void Update ()
 		{
 				CheckAudio ();
+				CheckVibration ();
 		}
+		
 		IEnumerator EarthQuake (float time, bool useTime)
 		{
 			
 				
-				GetComponent<AudioSource>().volume = startAudioVolume;
-				GetComponent<AudioSource>().Play ();
+				GetComponent<AudioSource> ().volume = startAudioVolume;
+				GetComponent<AudioSource> ().Play ();
 				audioIsPlaying = true;
 			
 				float length;
@@ -72,11 +74,12 @@ public class EarthquakeEffect : MonoBehaviour
 				shakeAmount = amountOfShaking;
 
 				long vibrationTime = ((long)time) * 1000;
-				Vibration.Vibrate (vibrationTime);
-				if (time > GetComponent<AudioSource>().clip.length) {
-						time = GetComponent<AudioSource>().clip.length;
+				//	Vibration.Vibrate (vibrationTime);
+				
+				if (time > GetComponent<AudioSource> ().clip.length) {
+						time = GetComponent<AudioSource> ().clip.length;
 				}
-				length = useTime ? time : GetComponent<AudioSource>().clip.length;
+				length = useTime ? time : GetComponent<AudioSource> ().clip.length;
 				float decayLenghtInSeconds = length * decayEffect;
 
 				float speed = 0f;
@@ -92,7 +95,7 @@ public class EarthquakeEffect : MonoBehaviour
 								speed += timeLeft * Time.deltaTime;
 								
 								shakeAmount = Mathf.Lerp (amountOfShaking, 0, speed);
-								GetComponent<AudioSource>().volume = Mathf.Lerp (startAudioVolume, 0, speed);
+								GetComponent<AudioSource> ().volume = Mathf.Lerp (startAudioVolume, 0, speed);
 						
 						} 
 						
@@ -103,23 +106,26 @@ public class EarthquakeEffect : MonoBehaviour
 				}
 
 			
-				if (GetComponent<AudioSource>().isPlaying) {
-						GetComponent<AudioSource>().Stop ();
+				if (GetComponent<AudioSource> ().isPlaying) {
+						GetComponent<AudioSource> ().Stop ();
 						audioIsPlaying = false;
 				}
 		}
 
 		private void CheckAudio ()
 		{
-				if (Time.timeScale == 0.0 && GetComponent<AudioSource>().isPlaying) {
+				if (Time.timeScale == 0.0 && GetComponent<AudioSource> ().isPlaying) {
 						
-						GetComponent<AudioSource>().Pause ();
-				} else if (Time.timeScale == 1.0 && !GetComponent<AudioSource>().isPlaying && audioIsPlaying) {
+						GetComponent<AudioSource> ().Pause ();
+				} else if (Time.timeScale == 1.0 && !GetComponent<AudioSource> ().isPlaying && audioIsPlaying) {
 						
-						GetComponent<AudioSource>().Play ();
+						GetComponent<AudioSource> ().Play ();
 				}
 				
 				
+		}
+		void CheckVibration ()
+		{
 		}
 		private void ShakeWithAmount (float amount)
 		{
