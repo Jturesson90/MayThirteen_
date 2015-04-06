@@ -62,7 +62,7 @@ public class GameManageHandler : MonoBehaviour
 						gameUIHelper.Win ();
 						Camera.main.GetComponent<GameCameraController> ().Win ();
 
-						int currentLevel = PlayerPrefs.GetInt ("CurrentLevel");
+						int currentLevel = PlayerPrefsManager.GetCurrentLevel ();
 						bool beatStarTime = gameTime.EndTimerAndDidBeatStarTime ();
 						if (beatStarTime) {
 								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE_STAR);

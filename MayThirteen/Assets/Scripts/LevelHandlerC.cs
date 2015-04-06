@@ -21,7 +21,6 @@ public class LevelHandlerC : MonoBehaviour
 
 		void Awake ()
 		{
-				print ("LEVELHANDLERC AWAKE");
 				#if UNITY_IPHONE
 		Environment.SetEnvironmentVariable ("MONO_REFLECTION_SERIALIZER", "yes");
 				#endif
@@ -52,9 +51,8 @@ public class LevelHandlerC : MonoBehaviour
 								starCounter++;
 						}
 				}
-				
-				PlayerPrefs.SetInt ("Stars", starCounter);
-				PlayerPrefs.SetInt ("LevelsDone", counter);
+				PlayerPrefsManager.SetStars (starCounter);
+				PlayerPrefsManager.SetLevelsDone (counter);
 				googleGame.UpdateAchievemnts (starCounter, counter);
 		}
 		void CheckAgain ()

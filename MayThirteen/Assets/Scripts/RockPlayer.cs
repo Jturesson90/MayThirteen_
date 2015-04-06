@@ -16,9 +16,9 @@ public class RockPlayer : MonoBehaviour
 		}
 		public void SetToSavedPosition ()
 		{
-				if (PlayerPrefs.HasKey ("PlayerXPos") && PlayerPrefs.HasKey ("PlayerYPos")) {
-						float xPos = PlayerPrefs.GetFloat ("PlayerXPos");
-						float yPos = PlayerPrefs.GetFloat ("PlayerYPos");
+				if (PlayerPrefsManager.HasStoneKey ()) {
+						float xPos = PlayerPrefsManager.GetStonePositionX ();
+						float yPos = PlayerPrefsManager.GetStonePositionY ();
 						float zPos = transform.position.z;
 						Vector3 newStartPosition = new Vector3 (xPos, yPos, zPos);
 						transform.position = newStartPosition;
@@ -26,8 +26,8 @@ public class RockPlayer : MonoBehaviour
 		}
 		public void SavePosition ()
 		{
-				PlayerPrefs.SetFloat ("PlayerXPos", transform.position.x);
-				PlayerPrefs.SetFloat ("PlayerYPos", transform.position.y);
+				PlayerPrefsManager.SetStonePosition (transform.position.x, transform.position.y);
+			
 		}
 		public void Win ()
 		{
@@ -36,27 +36,21 @@ public class RockPlayer : MonoBehaviour
 		
 		public void Die ()
 		{
-				GetComponent<Renderer>().enabled = false;
-				GetComponent<Rigidbody2D>().isKinematic = true;
+				GetComponent<Renderer> ().enabled = false;
+				GetComponent<Rigidbody2D> ().isKinematic = true;
 				
 				Component halo = GetComponent ("Halo");
 				if (halo != null) {
 						halo.GetType ().GetProperty ("enabled").SetValue (halo, false, null);
 				}
 				InstantiateBrokenStone ();
-				GetComponent<Collider2D>().enabled = false;
+				GetComponent<Collider2D> ().enabled = false;
 		}
 		private void InstantiateBrokenStone ()
 		{
 				GameObject.Instantiate (brokenStone, transform.position, Quaternion.identity);
 				
 		}
-		/*
 
-	cameraScript.StopFollow(canBeDead);
-
-	dead = true;
-	instantiateBrokenStone();
-	 */
 				
 }

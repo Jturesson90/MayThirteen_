@@ -75,9 +75,8 @@ public class LittleRockstarGoogleGame : MonoBehaviour
 				
 
 				GooglePlayGames.PlayGamesPlatform.Activate ();
-				if (PlayerPrefs.GetInt ("GameServiceLoggedIn", 0) == 1) {
-						LogInGooglePlus ();
-				}
+				
+				LogInGooglePlus ();
 		}
 
 			
@@ -94,10 +93,10 @@ public class LittleRockstarGoogleGame : MonoBehaviour
 				Social.localUser.Authenticate ((bool success) => {
 						if (success) {
 								//	mStatusText = "Welcome " + Social.localUser.userName;
-								PlayerPrefs.SetInt ("GameServiceLoggedIn", 1);
+								
 						} else {
 								//	mStatusText = "Authentication failed.";
-								PlayerPrefs.SetInt ("GameServiceLoggedIn", 0);
+								
 						}
 				});
 				
@@ -105,7 +104,7 @@ public class LittleRockstarGoogleGame : MonoBehaviour
 		public void LogOutGooglePlus ()
 		{
 				((GooglePlayGames.PlayGamesPlatform)Social.Active).SignOut ();
-				PlayerPrefs.SetInt ("GameServiceLoggedIn", 0);
+			
 		}
 
 		public void ShowAchivments ()

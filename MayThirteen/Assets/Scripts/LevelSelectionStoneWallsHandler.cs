@@ -13,7 +13,7 @@ public class LevelSelectionStoneWallsHandler : MonoBehaviour
 
 		void Awake ()
 		{
-				levelsDone = PlayerPrefs.GetInt ("LevelsDone", 0);
+				levelsDone = PlayerPrefsManager.GetLevelsDone ();
 				stoneWalls = GameObject.FindGameObjectsWithTag ("StoneWall");
 				
 

@@ -1859,6 +1859,98 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 401184, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -12.6400003
+      objectReference: {fileID: 0}
+    - target: {fileID: 401184, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -44.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401146, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: startOffset
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 401164, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 79.8099976
+      objectReference: {fileID: 0}
+    - target: {fileID: 401164, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -47.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 401192, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -22.7999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 401192, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 20.3999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 401192, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 172.899994
+      objectReference: {fileID: 0}
+    - target: {fileID: 401192, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 76.0999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 401170, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 18.0799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 401170, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -21.1000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 401170, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -41.7999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 401150, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -21.1000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 401150, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 18.0799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 401150, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -41.7999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001146, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: .200230673
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001146, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: .823529422
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001146, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: .7766518
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001146, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.a
+      value: .0196078438
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001144, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: .200230673
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001144, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: .823529422
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001144, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: .7766518
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001144, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
+      propertyPath: m_BackGroundColor.a
+      value: .0196078438
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8436b92ec7d8f2b4080834fc0d1d8a83, type: 2}
   m_IsPrefabParent: 0

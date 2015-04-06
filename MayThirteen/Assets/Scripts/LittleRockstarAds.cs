@@ -25,7 +25,7 @@ public class LittleRockstarAds : MonoBehaviour
 		}
 		public void ShowAds ()
 		{
-				bool showAds = PlayerPrefs.GetInt ("NoAds", 0) == 0 ? true : false;
+				bool showAds = PlayerPrefsManager.AdsEnabled ();
 				if (showAds) {
 						if (Advertisement.isReady ()) {
 								if (Random.value > 0.45f) {

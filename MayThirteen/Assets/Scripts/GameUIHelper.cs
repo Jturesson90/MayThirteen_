@@ -57,7 +57,7 @@ public class GameUIHelper : MonoBehaviour
 
 				gameItems.SetActive (false);
 				pausedItems.SetActive (true);
-				SetPauseLevelText ("Level " + PlayerPrefs.GetInt ("CurrentLevel"));
+				SetPauseLevelText ("Level " + PlayerPrefsManager.GetCurrentLevel ());
 				pauseArrow.SetActive (true);
 		}
 		private void HideUIOnStart ()

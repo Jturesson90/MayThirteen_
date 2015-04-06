@@ -26,15 +26,17 @@ public class MusicPlayer : MonoBehaviour
 						return;
 				} else {
 						instance = this;
-					
+				
 
 
 				}
 				DontDestroyOnLoad (this.gameObject);
+				AudioListener.volume = 0f;
 		}
 		void Start ()
 		{
-				AudioListener.pause = PlayerPrefs.GetInt ("SoundOn", 1) == 1 ? false : true;
+				AudioListener.pause = !PlayerPrefsManager.IsSoundOn ();
+				AudioListener.volume = 1f;
 		}
 	#if UNITY_EDITOR
 		void Update ()
@@ -66,7 +68,7 @@ public class MusicPlayer : MonoBehaviour
 			
 				case "LevelSelectionLobby":
 				
-						int levelsDone = PlayerPrefs.GetInt ("LevelsDone");
+						int levelsDone = PlayerPrefsManager.GetLevelsDone ();
 						if (levelsDone > 9) {
 								
 								PlaySong (9);
@@ -82,7 +84,7 @@ public class MusicPlayer : MonoBehaviour
 				case "Splash":
 						break;
 				default :
-						var currentLevel = PlayerPrefs.GetInt ("CurrentLevel");
+						var currentLevel = PlayerPrefsManager.GetCurrentLevel ();
 						if (currentLevel > 9) {
 								//RandomSongType (SongType.HIGH);
 								PlaySong (9);

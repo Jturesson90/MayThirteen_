@@ -176,9 +176,9 @@ public class InApp : MonoBehaviour
 								//	foundNoAds = true;
 						}
 						if (!foundNoAds) {
-								PlayerPrefs.SetInt ("NoAds", 0);
+								PlayerPrefsManager.ShowAds ();
 						} else {
-								PlayerPrefs.SetInt ("NoAds", 1);
+								PlayerPrefsManager.RemoveAds ();
 						}
 						
 				}
@@ -223,10 +223,10 @@ public class InApp : MonoBehaviour
 		{
 				switch (id) {
 				case NO_ADS:
-						PlayerPrefs.SetInt ("NoAds", 1);
+						PlayerPrefsManager.RemoveAds ();
 						break;
 				case "android.test.purchased":
-						PlayerPrefs.SetInt ("NoAds", 1);
+						PlayerPrefsManager.RemoveAds ();
 						break;
 				default:
 						break;

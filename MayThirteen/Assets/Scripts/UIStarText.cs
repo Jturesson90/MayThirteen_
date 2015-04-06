@@ -18,7 +18,7 @@ public class UIStarText : MonoBehaviour
 		}
 		void OnEnable ()
 		{
-				setText (PlayerPrefs.GetInt ("Stars", 0) + "/" + NUM_OF_STARS);
+				setText (PlayerPrefsManager.GetStars () + "/" + NUM_OF_STARS);
 		}
 		public void setText (string text)
 		{

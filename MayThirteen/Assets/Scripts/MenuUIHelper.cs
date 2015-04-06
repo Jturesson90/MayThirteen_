@@ -12,7 +12,8 @@ public class MenuUIHelper : MonoBehaviour
 		void Awake ()
 		{
 				levelSwitcher = GameObject.Find ("LevelSwitcher").GetComponent<LevelSwitcher> ();
-				PlayerPrefs.SetInt ("DoneFirstLevel", 1);
+				
+				PlayerPrefsManager.SetDoneFirstLevel (true);
 				mainMenuUI = GameObject.Find ("MainMenuUI");
 		
 				hideGUI ();
@@ -52,18 +53,11 @@ public class MenuUIHelper : MonoBehaviour
 		public void StartGame ()
 		{
 		
-				if (PlayerPrefs.GetInt ("DoneFirstLevel", 0) != 1) {
-			
+				if (!PlayerPrefsManager.DoneFirstLevel ()) {			
 						LoadLevel ("LevelX");
-			
-			
-			
 				} else {
 			
 						LoadLevel ("LevelSelectionLobby");
-			
-			
-			
 				}
 		}
 		private void LoadLevel (string level)

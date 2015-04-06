@@ -36,7 +36,7 @@ public class LevelSelectionLevel : MonoBehaviour
 						return;
 				}
 				
-#if UNITY_STANDALON || UNITY_EDITOR
+#if UNITY_STANDALONE || UNITY_EDITOR
 				HandleStandAloneInput ();		
 #endif
 #if UNITY_IPHONE || UNITY_ANDROID 
@@ -49,9 +49,10 @@ public class LevelSelectionLevel : MonoBehaviour
 						if (Input.GetTouch (i).phase == TouchPhase.Began) {
 								Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (i).position);
 								Vector2 touchPos = new Vector2 (wp.x, wp.y);
-								if (GetComponent<Collider2D>() == Physics2D.OverlapPoint (touchPos) && Physics2D.OverlapPoint (touchPos).gameObject.transform.name == "levelSelect_" + selectedLevel) {
+								if (GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos) && Physics2D.OverlapPoint (touchPos).gameObject.transform.name == "levelSelect_" + selectedLevel) {
 										if (isOpen) {	
-												PlayerPrefs.SetInt ("CurrentLevel", selectedLevel);
+
+												PlayerPrefsManager.SetCurrentLevel (selectedLevel);
 												manager.LoadLevel ("Level" + selectedLevel);
 										}
 								}  
@@ -62,7 +63,8 @@ public class LevelSelectionLevel : MonoBehaviour
 		{
 				if (Input.GetKeyDown (KeyCode.Space)) {
 						if (isOpen) {       
-								PlayerPrefs.SetInt ("CurrentLevel", selectedLevel);
+
+								PlayerPrefsManager.SetCurrentLevel (selectedLevel);
 								manager.LoadLevel ("Level" + selectedLevel);
 						}
 				}
@@ -70,6 +72,9 @@ public class LevelSelectionLevel : MonoBehaviour
 		public void CheckOpen ()
 		{
 				levelState = LevelHandlerC.handler.GetLevelState (selectedLevel);
+				if (selectedLevel > 15) {
+						levelState = LevelHandlerC.LevelState.NOT_OPEN;
+				}
 				switch (levelState) {
 				case LevelHandlerC.LevelState.OPEN:
 						isOpen = true;	
@@ -127,7 +132,7 @@ public class LevelSelectionLevel : MonoBehaviour
 		void SetNotOpen ()
 		{
 				Color newColor = new Color (0.3f, 0.3f, 0.3f);	
-				GetComponent<Renderer>().material.color = newColor;
+				GetComponent<Renderer> ().material.color = newColor;
 		}
 		void  SetStar (bool arg)
 		{
@@ -136,6 +141,6 @@ public class LevelSelectionLevel : MonoBehaviour
 		void SetDoneIcon ()
 		{
 				Color newColor = new Color32 (254, 34, 34, 255);
-				GetComponent<Renderer>().material.color = newColor;
+				GetComponent<Renderer> ().material.color = newColor;
 		}
 }

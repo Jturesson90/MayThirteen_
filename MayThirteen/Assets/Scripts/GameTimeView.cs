@@ -81,10 +81,10 @@ public class GameTimeView : MonoBehaviour
 				starTimes [9] = 37f;
 				//Level 11- 15
 				starTimes [10] = 28f;
-				starTimes [11] = 2f;
+				starTimes [11] = 46.5f;
 				starTimes [12] = 7f;
-				starTimes [13] = 18f;
-				starTimes [14] = 2f;
+				starTimes [13] = 24f;
+				starTimes [14] = 30.30f;
 				//Level  16-20
 				starTimes [15] = 2f;
 				starTimes [16] = 2f;
@@ -92,7 +92,7 @@ public class GameTimeView : MonoBehaviour
 				starTimes [18] = 2f;
 				starTimes [19] = 2f;
 				
-				int currentLevel = PlayerPrefs.GetInt ("CurrentLevel", 0);
+				int currentLevel = PlayerPrefsManager.GetCurrentLevel ();
 				return starTimes [currentLevel - 1];
 		}
 
