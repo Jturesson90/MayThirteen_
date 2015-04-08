@@ -2131,7 +2131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd63983eacecdd43b8660622b601af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: -600
 --- !u!212 &698710306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3142,7 +3141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd63983eacecdd43b8660622b601af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: -600
 --- !u!212 &929308330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3542,7 +3540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd63983eacecdd43b8660622b601af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: -600
 --- !u!212 &1164640922
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4848,7 +4845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd63983eacecdd43b8660622b601af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: -600
 --- !u!212 &1550896522
 SpriteRenderer:
   m_ObjectHideFlags: 0
