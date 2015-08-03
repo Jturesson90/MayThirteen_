@@ -1,63 +1,70 @@
 
 [Ferr2DT_TerrainMaterial]
+Assets/Prefabs/Extern/LittleRockstarAds.prefab
+Assets/Prefabs/Items/SawbladeCorner 1.prefab
 Assets/Plugins/OpenIAB/Prefabs/OpenIABEventManager.prefab
-Assets/Prefabs/OutOfBounds.prefab
-Assets/Prefabs/LevelSwitcher.prefab
+Assets/Prefabs/Enivorment/OutOfBounds.prefab
+Assets/Prefabs/Enivorment/LevelSwitcher.prefab
+Assets/Prefabs/Items/LevelSelectionSawbladeHolder.prefab
 Assets/Prefabs/Cameras/Camera2.prefab
-Assets/Prefabs/PauseArrow.prefab
+Assets/Prefabs/UI/PauseArrow.prefab
 Assets/Ferr/2DTerrain/TerrainMaterials/MossyTerrainMaterial.prefab
-Assets/Prefabs/GameCameraHolder.prefab
-Assets/Prefabs/levelSelect_1.prefab
-Assets/Prefabs/LevelSelectoionCameraHolder.prefab
-Assets/Prefabs/LevelSelectionCamera.prefab
-Assets/Prefabs/MusicPlayer.prefab
-Assets/Prefabs/EarthquakeEffect.prefab
+Assets/Prefabs/Cameras/GameCameraHolder.prefab
+Assets/Prefabs/Enivorment/levelSelect_1.prefab
+Assets/Prefabs/Cameras/LevelSelectoionCameraHolder.prefab
+Assets/Prefabs/Mätobjekt/Worldspace3.prefab
+Assets/Prefabs/Items/SawBladeHit.prefab
+Assets/Prefabs/Cameras/LevelSelectionCamera.prefab
+Assets/Prefabs/Enivorment/MusicPlayer.prefab
+Assets/Prefabs/Enivorment/EarthquakeEffect.prefab
 Assets/Prefabs/Items/SawbladeHolder.prefab
-Assets/Prefabs/WorldController.prefab
-Assets/Prefabs/BuyNoAdsHolder.prefab
+Assets/Prefabs/Extern/WorldController.prefab
+Assets/Prefabs/UI/BuyNoAdsHolder.prefab
 Assets/Prefabs/Stone/StoneWall.prefab
-Assets/Prefabs/Goal 1.prefab
+Assets/Prefabs/Extern/InAppPurchase.prefab
+Assets/Prefabs/Enivorment/Goal 1.prefab
+Assets/Prefabs/Enivorment/BackgroundClouds.prefab
 Assets/Prefabs/Stone/Ball.prefab
-Assets/Prefabs/Scenes/GameLevel.prefab
+Assets/Prefabs/Extern/LittleRockstarGoogleGame.prefab
 Assets/Prefabs/Stone/BrokenStone.prefab
-Assets/Prefabs/GameUICanvas.prefab
+Assets/Prefabs/UI/GameUICanvas.prefab
 Assets/Sprites/tree_cartoon_big_0.prefab
-Assets/Prefabs/LevelHandler.prefab
-Assets/Prefabs/BackgroundClouds.prefab
-Assets/Prefabs/SawbladeCorner 1.prefab
-Assets/Prefabs/LittleRockstarAds.prefab
-Assets/Prefabs/InAppPurchase.prefab
-Assets/Prefabs/LittleRockstarGoogleGame.prefab
+Assets/Prefabs/Extern/LevelHandler.prefab
+Assets/Prefabs/Scenes/GameManageHandler.prefab
+Assets/Prefabs/Scenes/GameLevel.prefab
+Assets/Prefabs/GooglePlayServices/GoogleGameServices.prefab
 
 [Ferr2DT_PathTerrain]
+Assets/Prefabs/Items/SawbladeCorner 1.prefab
 Assets/Plugins/OpenIAB/Prefabs/OpenIABEventManager.prefab
-Assets/Prefabs/OutOfBounds.prefab
-Assets/Prefabs/LevelSwitcher.prefab
+Assets/Prefabs/Items/LevelSelectionSawbladeHolder.prefab
 Assets/Prefabs/Cameras/Camera2.prefab
-Assets/Prefabs/PauseArrow.prefab
 Assets/Ferr/2DTerrain/TerrainMaterials/MossyTerrainMaterial.prefab
-Assets/Prefabs/GameCameraHolder.prefab
-Assets/Prefabs/levelSelect_1.prefab
-Assets/Prefabs/LevelSelectoionCameraHolder.prefab
-Assets/Prefabs/LevelSelectionCamera.prefab
-Assets/Prefabs/MusicPlayer.prefab
-Assets/Prefabs/EarthquakeEffect.prefab
+Assets/Prefabs/Mätobjekt/Worldspace3.prefab
+Assets/Prefabs/Items/SawBladeHit.prefab
 Assets/Prefabs/Items/SawbladeHolder.prefab
-Assets/Prefabs/WorldController.prefab
-Assets/Prefabs/BuyNoAdsHolder.prefab
 Assets/Prefabs/Stone/StoneWall.prefab
-Assets/Prefabs/Sawblade.prefab
-Assets/Prefabs/InAppPurchase.prefab
-Assets/Prefabs/Goal 1.prefab
 Assets/Prefabs/Stone/Ball.prefab
-Assets/Prefabs/SawBladeCorner.prefab
 Assets/Prefabs/Scenes/GameLevel.prefab
 Assets/Prefabs/Stone/BrokenStone.prefab
-Assets/Prefabs/Screenshot.prefab
-Assets/Prefabs/GameUICanvas.prefab
 Assets/Sprites/tree_cartoon_big_0.prefab
-Assets/Prefabs/LevelHandler.prefab
-Assets/Prefabs/BackgroundClouds.prefab
-Assets/Prefabs/SawbladeCorner 1.prefab
-Assets/Prefabs/LittleRockstarAds.prefab
-Assets/Prefabs/LittleRockstarGoogleGame.prefab
+Assets/Prefabs/Enivorment/BackgroundClouds.prefab
+Assets/Prefabs/Enivorment/OutOfBounds.prefab
+Assets/Prefabs/UI/BuyNoAdsHolder.prefab
+Assets/Prefabs/UI/GameUICanvas.prefab
+Assets/Prefabs/UI/PauseArrow.prefab
+Assets/Prefabs/Cameras/GameCameraHolder.prefab
+Assets/Prefabs/Cameras/LevelSelectoionCameraHolder.prefab
+Assets/Prefabs/Cameras/LevelSelectionCamera.prefab
+Assets/Prefabs/Enivorment/EarthquakeEffect.prefab
+Assets/Prefabs/Enivorment/Goal 1.prefab
+Assets/Prefabs/Extern/InAppPurchase.prefab
+Assets/Prefabs/Extern/LittleRockstarGoogleGame.prefab
+Assets/Prefabs/Extern/LittleRockstarAds.prefab
+Assets/Prefabs/Extern/LevelHandler.prefab
+Assets/Prefabs/Extern/WorldController.prefab
+Assets/Prefabs/Enivorment/MusicPlayer.prefab
+Assets/Prefabs/Enivorment/LevelSwitcher.prefab
+Assets/Prefabs/Enivorment/levelSelect_1.prefab
+Assets/Prefabs/Scenes/GameManageHandler.prefab
+Assets/Prefabs/GooglePlayServices/GoogleGameServices.prefab

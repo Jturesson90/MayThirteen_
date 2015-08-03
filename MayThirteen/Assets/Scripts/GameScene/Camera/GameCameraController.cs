@@ -7,6 +7,7 @@ public class GameCameraController : MonoBehaviour
 		GameUIHelper uiHelper;
 		GameMovement gameMovement;
 		public float startZoomAfter = 2.5f;
+		public bool isGoalNormalRotation = true;
 
 		void Awake ()
 		{
@@ -22,7 +23,20 @@ public class GameCameraController : MonoBehaviour
 		public void Win ()
 		{
 				gameMovement.enabled = false;
-				StartCoroutine (RotateToZero ());
+				if (isGoalNormalRotation) {
+						StartCoroutine (RotateToZero ());
+				} else {
+						StartCoroutine (RotateToUpsideDown ());
+				}
+		}
+		private IEnumerator RotateToUpsideDown ()
+		{
+				Quaternion cameraWonTargetRotation = Quaternion.Euler (0f, 0f, 180f);
+				while (true) {
+						transform.rotation = Quaternion.Lerp (transform.rotation, cameraWonTargetRotation, Time.deltaTime * 2.0f);
+						yield return new WaitForFixedUpdate ();
+				} 
+				//transform.rotation =  Quaternion.Lerp(transform.rotation,cameraWonTarget, Time.deltaTime * 2.0);
 		}
 		private IEnumerator RotateToZero ()
 		{

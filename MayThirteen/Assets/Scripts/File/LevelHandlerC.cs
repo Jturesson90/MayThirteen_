@@ -119,10 +119,18 @@ public class LevelHandlerC : MonoBehaviour
 		}
 		void Save ()
 		{
-		
-				PlayerData data = new PlayerData ();
-				data.levelArray = levelArray;
-				EasySerializer.SerializeObjectToFile (data, Application.persistentDataPath + "/data.dat");
+				PlayerData oldData = EasySerializer.DeserializeObjectFromFile (Application.persistentDataPath + "/data.dat") as PlayerData;
+				if (oldData != null) {
+						oldData.levelArray = levelArray;
+						EasySerializer.SerializeObjectToFile (oldData, Application.persistentDataPath + "/data.dat");
+						print ("GOT DATA, saving old");
+				} else {
+						PlayerData data = new PlayerData ();
+						data.levelArray = levelArray;
+						EasySerializer.SerializeObjectToFile (data, Application.persistentDataPath + "/data.dat");
+				}
+				
+				
 		}
 		void Load ()
 		{

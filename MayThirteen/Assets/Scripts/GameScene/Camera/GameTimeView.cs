@@ -4,9 +4,10 @@ using UnityEngine.UI;
 
 public class GameTimeView : MonoBehaviour
 {
-
+		GameObject superStar;
 		Text text;
 		Text winText;
+		Text highscoreText;
 		private bool shouldCount = false;
 		private float time = 0f;
 		float starTime = 1000f;		
@@ -15,19 +16,28 @@ public class GameTimeView : MonoBehaviour
 
 		void Awake ()
 		{
+				superStar = GameObject.Find ("SuperStar");
+				superStar.SetActive (false);
 				starImage = GameObject.Find ("Star");
 				starImage.SetActive (false);
 				starTime = GetStarTime ();
 				winText = GameObject.Find ("TimerPlankText").GetComponent<Text> ();
 				winText.text = "";
+				highscoreText = GameObject.Find ("HighscoreText").GetComponent<Text> ();
+				highscoreText.text = "";
 				text = GetComponent<Text> ();
 
 		}
+		public void ShowHighScore (float time)
+		{
+				
+				highscoreText.text = SecondsToMinutes (time) + "  (Best)"; 
+		}
 		public void newTime (float time)
 		{
-				text.text = secondsToMinutes (time);
+				text.text = SecondsToMinutes (time);
 		}
-
+		
 		public void StartTimer ()
 		{
 				shouldCount = true;
@@ -39,6 +49,10 @@ public class GameTimeView : MonoBehaviour
 				shouldCount = false;
 				bool didBeatStartTime = CheckStarCondition ();
 				return didBeatStartTime;
+		}
+		public float GetTime ()
+		{
+				return time;
 		}
 		public void Stop ()
 		{
@@ -55,11 +69,13 @@ public class GameTimeView : MonoBehaviour
 		private bool CheckStarCondition ()
 		{
 				if (starTime > time) {
-						winText.text = "You got a superstar!";
+
+						//	winText.text = "You got a superstar!";
 						starImage.SetActive (true);
 						return true;
 				} else {
-						winText.text = "Superstar time: " + secondsToMinutes (starTime);
+						superStar.SetActive (true);
+						winText.text = SecondsToMinutes (starTime);
 						return false;
 				}
 		}
@@ -82,12 +98,12 @@ public class GameTimeView : MonoBehaviour
 				//Level 11- 15
 				starTimes [10] = 28f;
 				starTimes [11] = 46.5f;
-				starTimes [12] = 7f;
+				starTimes [12] = 7.2f;
 				starTimes [13] = 24f;
 				starTimes [14] = 30.30f;
 				//Level  16-20
-				starTimes [15] = 2f;
-				starTimes [16] = 2f;
+				starTimes [15] = 28f;
+				starTimes [16] = 13f;
 				starTimes [17] = 2f;
 				starTimes [18] = 2f;
 				starTimes [19] = 2f;
@@ -96,7 +112,7 @@ public class GameTimeView : MonoBehaviour
 				return starTimes [currentLevel - 1];
 		}
 
-		private string secondsToMinutes (float time)
+		private string SecondsToMinutes (float time)
 		{		
 			
 				return string.Format ("{0:0}:{1:00}.{2:00}",

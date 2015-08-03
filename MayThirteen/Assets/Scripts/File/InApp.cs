@@ -173,7 +173,7 @@ public class InApp : MonoBehaviour
 						}
 						
 						if (JespersPhone ()) {
-								//	foundNoAds = true;
+								foundNoAds = true;
 						}
 						if (!foundNoAds) {
 								PlayerPrefsManager.ShowAds ();

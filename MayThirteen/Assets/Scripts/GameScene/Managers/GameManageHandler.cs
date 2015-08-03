@@ -7,6 +7,9 @@ public class GameManageHandler : MonoBehaviour
 		LevelHandlerC levelHandler;
 		GameTimeView gameTime;
 		GameObject player;
+		Highscores highscores;
+		LittleRockstarGoogleGame googleGame;
+		
 		
 		bool isOver = false;
 		
@@ -14,11 +17,13 @@ public class GameManageHandler : MonoBehaviour
 
 		// Use this for initialization
 		void Awake ()
-		{
+		{	
+				highscores = GetComponent<Highscores> ();
 				player = GameObject.Find ("RockPlayer");
 				gameTime = GameObject.Find ("GameTimeView").GetComponent<GameTimeView> ();
 				levelHandler = GameObject.Find ("LevelHandler").GetComponent<LevelHandlerC> ();
 				gameUIHelper = GameObject.Find ("GameUIHelper").GetComponent<GameUIHelper> ();
+				googleGame = GameObject.Find ("LittleRockstarGoogleGame").GetComponent<LittleRockstarGoogleGame> ();
 		}
 		void Start ()
 		{
@@ -60,9 +65,16 @@ public class GameManageHandler : MonoBehaviour
 				if (!isOver) {
 						isOver = true;
 						gameUIHelper.Win ();
+						
 						Camera.main.GetComponent<GameCameraController> ().Win ();
-
 						int currentLevel = PlayerPrefsManager.GetCurrentLevel ();
+						highscores.SaveHighScoreAtLevel (currentLevel, gameTime.GetTime ());
+						float bestTime = highscores.LoadHighscoreAtLevel (currentLevel);
+						gameTime.ShowHighScore (bestTime);
+
+						long theTimeInLong = System.Convert.ToInt64 (bestTime * 1000);
+						googleGame.PostScoreToLeaderboard (currentLevel, theTimeInLong);
+						
 						bool beatStarTime = gameTime.EndTimerAndDidBeatStarTime ();
 						if (beatStarTime) {
 								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE_STAR);
@@ -71,6 +83,7 @@ public class GameManageHandler : MonoBehaviour
 								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE);
 							
 						}
+						
 				}
 		}
 		public void RestartLevel ()

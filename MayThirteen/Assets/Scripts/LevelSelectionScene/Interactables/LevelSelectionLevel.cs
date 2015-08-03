@@ -7,7 +7,7 @@ public class LevelSelectionLevel : MonoBehaviour
 
 		private bool isOpen = false;
 		private bool clickable = false;
-
+		private const int NUM_OF_OPEN_LEVELS = 17;
 		LevelHandlerC.LevelState levelState;
 		LevelSelectionManager manager;
 
@@ -72,7 +72,7 @@ public class LevelSelectionLevel : MonoBehaviour
 		public void CheckOpen ()
 		{
 				levelState = LevelHandlerC.handler.GetLevelState (selectedLevel);
-				if (selectedLevel > 15) {
+				if (selectedLevel > NUM_OF_OPEN_LEVELS) {
 						levelState = LevelHandlerC.LevelState.NOT_OPEN;
 				}
 				switch (levelState) {

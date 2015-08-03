@@ -6,7 +6,7 @@ public class GoogleGameMenuUIHandler : MonoBehaviour
 {
 
 		Image loginUI;
-		Button gameUI;
+		Button gameUI, leaderboardUI;
 		Color normal = new Color (1f, 1f, 1f, 1f);
 		Color faded = new Color (1f, 1f, 1f, 0.5f);
 		LittleRockstarGoogleGame googleGame;
@@ -15,8 +15,9 @@ public class GoogleGameMenuUIHandler : MonoBehaviour
 		void Awake ()
 		{
 				googleGame = GameObject.Find ("LittleRockstarGoogleGame").GetComponent<LittleRockstarGoogleGame> ();
-				gameUI = GameObject.Find ("GoogleGame").GetComponent<Button> ();
-				loginUI = GameObject.Find ("GooglePlusLogin").GetComponent<Image> ();
+				gameUI = GameObject.Find ("PlayAchievements").GetComponent<Button> ();
+				loginUI = GameObject.Find ("PlayLogin").GetComponent<Image> ();
+				leaderboardUI = GameObject.Find ("PlayLeaderboard").GetComponent<Button> ();
 		}
 		void Start ()
 		{
@@ -29,10 +30,12 @@ public class GoogleGameMenuUIHandler : MonoBehaviour
 		{
 				if (IsLoggedIn ()) {
 						gameUI.interactable = true;
+						leaderboardUI.interactable = true;
 						loginUI.color = faded;
 	 		
 				} else {
 						loginUI.color = normal;
+						leaderboardUI.interactable = false;
 						gameUI.interactable = false;
 						
 				}
@@ -44,6 +47,10 @@ public class GoogleGameMenuUIHandler : MonoBehaviour
 		public void ShowAchievments ()
 		{
 				googleGame.ShowAchivments ();
+		}
+		public void ShowLeaderboard ()
+		{
+				googleGame.ShowLeaderboard ();
 		}
 		bool IsLoggedIn ()
 		{
