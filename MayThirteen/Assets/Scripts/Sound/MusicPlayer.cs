@@ -49,11 +49,13 @@ public class MusicPlayer : MonoBehaviour
 
 				currentTime = GetComponent<AudioSource> ().time;
 		}
+	#else
+	void OnLevelWasLoaded ()
+	{
+		CheckLevel ();
+	}
 	#endif
-		void OnLevelWasLoaded ()
-		{
-				CheckLevel ();
-		}
+		
 		void CheckLevel ()
 		{
 				switch (Application.loadedLevelName) {
@@ -104,17 +106,17 @@ public class MusicPlayer : MonoBehaviour
 				float timeInSamples = GetComponent<AudioSource> ().time;
 				AudioSource audioSource = GetComponent<AudioSource> ();
 				float timeSince = Time.time;
-				GetComponent<AudioSource> ().clip = backgroundMusic [id];
-				if (GetComponent<AudioSource> ().clip != currentClip) {
+				audioSource.clip = backgroundMusic [id];
+				if (audioSource.clip != currentClip) {
 			
-						currentClip = GetComponent<AudioSource> ().clip;
+						currentClip = audioSource.clip;
 						
 						audioSource.Play ();
 		
 						
 						timeSince = Time.time - timeSince;
 			
-						GetComponent<AudioSource> ().time = timeInSamples + timeSince;
+						audioSource.time = timeInSamples + timeSince;
 				}
 		}
 		void RandomSongType (SongType type)

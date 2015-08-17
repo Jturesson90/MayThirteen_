@@ -146,12 +146,137 @@ public class LittleRockstarGoogleGame : MonoBehaviour
 						// handle success or failure
 				});
 		}
+
+
 		public void ShowLeaderboard ()
 		{
-				Social.ShowLeaderboardUI ();
+				
+				CheckForLostHighscores ();
+				if (Application.loadedLevelName == "Menu") {
+						Social.ShowLeaderboardUI ();
+				} else if (Application.loadedLevelName != "Splash" && Application.loadedLevelName != "LevelSelectionLobby") {
+						ShowLeaderboardAtLevel (Application.loadedLevelName);
+				}
+
+		}
+		
+
+		private void ShowLeaderboardAtLevel (string level)
+		{
+				string leaderboard = "";
+
+				switch (level) {
+				case "Level1":
+						leaderboard = LEVEL_1;
+						break;
+				case "Level2":
+						leaderboard = LEVEL_2;
+						break;
+				case "Level3":
+						leaderboard = LEVEL_3;
+						break;
+				case "Level4":
+						leaderboard = LEVEL_4;
+						break;
+				case "Level5":
+						leaderboard = LEVEL_5;
+						break;
+				case "Level6":
+						leaderboard = LEVEL_6;
+						break;
+				case "Level7":
+						leaderboard = LEVEL_7;
+						break;
+				case "Level8":
+						leaderboard = LEVEL_8;
+						break;
+				case "Level9":
+						leaderboard = LEVEL_9;
+						break;
+				case "Level10":
+						leaderboard = LEVEL_10;
+						break;
+				case "Level11":
+						leaderboard = LEVEL_11;
+						break;
+				case "Level12":
+						leaderboard = LEVEL_12;
+						break;
+				case "Level13":
+						leaderboard = LEVEL_13;
+						break;
+				case "Level14":
+						leaderboard = LEVEL_14;
+						break;
+				case "Level15":
+						leaderboard = LEVEL_15;
+						break;
+				case "Level16":
+						leaderboard = LEVEL_16;
+						break;
+				case "Level17":
+						leaderboard = LEVEL_17;
+						break;
+				case "Level18":
+						leaderboard = LEVEL_18;
+						break;
+				case "Level19":
+						leaderboard = LEVEL_19;
+						break;
+				case "Level20":
+						leaderboard = LEVEL_20;
+						break;
+				default:
+						leaderboard = LEVEL_1;
+						break;
+				}
+
+				PlayGamesPlatform.Instance.ShowLeaderboardUI (leaderboard);
+
 		}
 		public void PostScoreToLeaderboard (int level, long time)
 		{
+				string id = GetIDTag (level);
+				if (!id.Equals (" ")) {
+					
+						Social.ReportScore (time, id, (bool success) => {
+								// handle success or failure
+
+								if (!success) {
+										var notUploadedHighscores = new NotUploadedHighscores ();
+										notUploadedHighscores.SaveHighScoreAtLevel (level, time);
+								} else {
+
+								}
+						});
+				}
+				
+		}
+		private void PostScoreToLeaderboardFromLostHighscore (int level, long time)
+		{
+				string id = GetIDTag (level);
+				if (id.Equals (" "))
+						return;
+				Social.ReportScore (time, id, (bool success) => {
+						if (success) {
+								var notUploadedHighscores = new NotUploadedHighscores ();
+								notUploadedHighscores.ResetScoreAt (level);
+						}
+				});
+					
+		}
+		private void CheckForLostHighscores ()
+		{
+				var notUploadedHighscores = new NotUploadedHighscores ();
+				long[] lostHighscores = notUploadedHighscores.GetLostHighscores ();
+				for (int i = 0; i < lostHighscores.Length; i++) {
+						if (lostHighscores [i] < long.MaxValue) {
+								PostScoreToLeaderboardFromLostHighscore (i + 1, lostHighscores [i]);
+						}
+				}
+		}
+		private string GetIDTag (int level)
+		{	
 				string id = " ";
 				switch (level) {
 				case 1: 
@@ -214,13 +339,12 @@ public class LittleRockstarGoogleGame : MonoBehaviour
 				case 20: 
 						id = LEVEL_20;
 						break;
+				default:
+						id = " ";
+						break;
+			
 				}
-
-				if (!id.Equals (" ")) {
-						Social.ReportScore (time, id, (bool success) => {
-								// handle success or failure
-						});
-				}
-				
+				return id;
 		}
+
 }

@@ -7,7 +7,7 @@ public class LevelSelectionLevel : MonoBehaviour
 
 		private bool isOpen = false;
 		private bool clickable = false;
-		private const int NUM_OF_OPEN_LEVELS = 17;
+		private const int NUM_OF_OPEN_LEVELS = 18;
 		LevelHandlerC.LevelState levelState;
 		LevelSelectionManager manager;
 

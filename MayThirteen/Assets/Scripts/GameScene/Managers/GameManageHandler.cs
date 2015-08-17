@@ -72,9 +72,11 @@ public class GameManageHandler : MonoBehaviour
 						float bestTime = highscores.LoadHighscoreAtLevel (currentLevel);
 						gameTime.ShowHighScore (bestTime);
 
-						long theTimeInLong = System.Convert.ToInt64 (bestTime * 1000);
+						
+						long theTimeInLong = System.Convert.ToInt64 (gameTime.GetTime () * 1000);
 						googleGame.PostScoreToLeaderboard (currentLevel, theTimeInLong);
 						
+
 						bool beatStarTime = gameTime.EndTimerAndDidBeatStarTime ();
 						if (beatStarTime) {
 								levelHandler.UpdateArray (currentLevel, LevelHandlerC.LevelState.DONE_STAR);

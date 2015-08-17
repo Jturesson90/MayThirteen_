@@ -33,6 +33,7 @@ Assets/Prefabs/Extern/LevelHandler.prefab
 Assets/Prefabs/Scenes/GameManageHandler.prefab
 Assets/Prefabs/Scenes/GameLevel.prefab
 Assets/Prefabs/GooglePlayServices/GoogleGameServices.prefab
+Assets/Prefabs/Items/Sawblade4th.prefab
 
 [Ferr2DT_PathTerrain]
 Assets/Prefabs/Items/SawbladeCorner 1.prefab
@@ -68,3 +69,4 @@ Assets/Prefabs/Enivorment/LevelSwitcher.prefab
 Assets/Prefabs/Enivorment/levelSelect_1.prefab
 Assets/Prefabs/Scenes/GameManageHandler.prefab
 Assets/Prefabs/GooglePlayServices/GoogleGameServices.prefab
+Assets/Prefabs/Items/Sawblade4th.prefab

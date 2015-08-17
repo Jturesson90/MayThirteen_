@@ -11,7 +11,9 @@ public class OutOfBounds : MonoBehaviour
 		void OnTriggerEnter2D (Collider2D other)
 		{
 				if (other.tag == "Ball") {
-						manager.OutOfBounds ();
-				}	
+						if (manager != null) {
+								manager.OutOfBounds ();
+						}
+				}
 		}
 }

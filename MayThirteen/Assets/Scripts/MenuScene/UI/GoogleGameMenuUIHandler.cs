@@ -14,6 +14,7 @@ public class GoogleGameMenuUIHandler : MonoBehaviour
 		
 		void Awake ()
 		{
+			
 				googleGame = GameObject.Find ("LittleRockstarGoogleGame").GetComponent<LittleRockstarGoogleGame> ();
 				gameUI = GameObject.Find ("PlayAchievements").GetComponent<Button> ();
 				loginUI = GameObject.Find ("PlayLogin").GetComponent<Image> ();
